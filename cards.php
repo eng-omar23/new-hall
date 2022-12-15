@@ -5,14 +5,10 @@ include("nav.php");
 <style>
   .card{
     margin-right: 45px;
-    margin-top: 95px;
+    margin-top: 85px;
     margin-left: 45px;
-   
+    margin-bottom: 45px;
   }
-  body{
-    background-color: white;
-  }
-
 </style>
 <div class="container text-center ">
     <div class="row row-cols-4 rows-md-3 g-3">
