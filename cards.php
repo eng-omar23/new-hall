@@ -40,8 +40,6 @@ else{
   echo "No data Data Available";
 }
 ?>
-
-
 </div>
 
 </div>
