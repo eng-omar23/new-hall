@@ -2,11 +2,13 @@
 include("header.php");
 include("conn.php");
 ?>
+
 <style>
 @import url('https://fonts.googleapis.com/css?family=Quicksand:400,700');
   #a{
 color:white;
   }
+ 
     </style>
 <nav class="navbar navbar-expand-sm navbar-light bg-info fixed-top">
 <div class="container-fluid ">
@@ -34,6 +36,7 @@ color:white;
     <li class="nav-item ">
       <a class="nav-link" id='a' href="login.php">Sign/Signup<i class="fa fa-signed"></i></a>
     </li>
+
 
   </ul>
 </div>
