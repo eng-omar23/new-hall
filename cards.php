@@ -7,7 +7,7 @@ include("nav.php");
     margin-right: 45px;
     margin-top: 85px;
     margin-left: 45px;
-    margin-bottom: 45px;
+    margin-bottom: 49px;
   }
 </style>
 <div class="container text-center ">
