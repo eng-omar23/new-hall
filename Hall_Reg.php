@@ -8,7 +8,7 @@ body{
     background-color: white;
     background: #000;
     color:white;
-    text-align: center;
+    text-align: center ;
 }
 
 </style>
