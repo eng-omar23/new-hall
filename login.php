@@ -1,3 +1,7 @@
+<?php
+require 'header.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,14 +39,15 @@
                                             <label for="password" class="form-label ">Password</label>
                                             <input type="password" class="form-control" id="password" name="password" placeholder="*******">
                                         </div>
-                                        <div class="d-grid">
-                                            <button class="btn btn-outline-danger" name="btn" id="btn" type="submit">Login</button>
-                                        </div>
-                                        <br>
-                                        <br>
+                                        
                                
                                         </form>
                                         <center>
+                                        <div class="d-grid">
+                                            <button class="btn btn-lg btn-outline-danger" name="btn" id="btn" type="submit">Login</button>
+                                        </div>
+                                        <br>
+                                        <br>
                                         <div class="mt-3">
                                         <h7 class=" mb-5">Have  No Account Signup?
                                             <button class="btn btn-outline-danger" href="signup.php">Sign up</button>
