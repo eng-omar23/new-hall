@@ -1,6 +1,7 @@
 <?php
 require 'conn.php';
 $hallid=$_POST['hallid'];
+$facilityid =$_POST['facilityid'];
 $company_id=$_POST['company_id'];
 $type=$_POST['type'];
 $capacity=$_POST['capacity'];
@@ -13,7 +14,7 @@ $folder ="image/".$photo;
 
 
 if($hallid==null){   
-$sql="insert into halls values (null,'$company_id','$type','$location','$capacity','$charge','$folder','$mdate')";
+$sql="insert into halls values (null,'$company_id','$facilityid','$type','$location','$capacity','$charge','$folder','$mdate')";
 $query=mysqli_query($conn,$sql) or die(mysqli_error($conn));
 
 if($query){

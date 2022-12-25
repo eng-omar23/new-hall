@@ -29,7 +29,7 @@ body{
                 <input type="hidden"name="hallid" id="hallid">
                 <label class="form-label">Company Name</label>
   <select class="form-control" id="company_id" name="company_id">
-    <option value="">chooose your Paren Company</option>
+    <option value="">chooose your Parent Company</option>
     <?php 
     $_query=mysqli_query($conn,"select * from company_reg");
     if(mysqli_num_rows($_query)>0){
@@ -37,6 +37,27 @@ body{
         while($data=mysqli_fetch_array($_query)){
             ?>
             <option value="<?php echo $data["id"];?>"><?php echo $data['Name']?></option>
+            <?php
+        }
+    }
+    else{
+        ?>
+        <option value="">No data Available</option>
+        <?php
+    }
+    ?>
+  </select>
+  <br>
+
+  <select class="form-control" id="facilityid" name="facilityid">
+    <option value="">chooose Facility for hall</option>
+    <?php 
+    $_query=mysqli_query($conn,"select * from facility");
+    if(mysqli_num_rows($_query)>0){
+        $_query=mysqli_query($conn,"select * from facility");
+        while($data=mysqli_fetch_array($_query)){
+            ?>
+            <option value="<?php echo $data["facility_id"];?>"><?php echo $data['facility_name']?></option>
             <?php
         }
     }
