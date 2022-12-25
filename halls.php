@@ -22,7 +22,7 @@ while($data=mysqli_fetch_array($query)){
   <img class="card-img-top" src="<?php echo $data['hall_photo']?>" height=45%; width=45; alt="Card image cap">
   <div class="card-body">
   <h7 class="card-title">Location:<?php echo $data['location']?></h5><br>
-    <h7 class="card-title">Price:<?php echo $data['charge_perhead']?>$</h5>
+    <h7 class="card-title">Price:<?php echo $data['charge_perhead']?>$ per person</h5>
     <p class="card-text">Capacity:<?php echo $data['capacity']?> Persons</p>
     <a href="booking.php?id=<?php echo $data['id']?>" class="btn btn-primary">Book Now</a>
   </div>

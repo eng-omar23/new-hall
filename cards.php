@@ -31,7 +31,7 @@ while($data=mysqli_fetch_array($query)){
 </div>
   <?php
 }
-}
+ }
 else{
   echo "No data Data Available";
 }

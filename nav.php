@@ -19,10 +19,10 @@ color:white;
 <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
   <ul class="navbar-nav ">
     <li class="nav-item ">
-      <a class="nav-link" id='a' href="#">Home</a>
+      <a class="nav-link" id='a' href="#">Home <i class="fa fa-home"></i></a>
     </li>
     <li class="nav-item ">
-      <a class="nav-link" id='a' href="#">ContactUs<i class="fa fa-contacted"></i></a>
+      <a class="nav-link" id='a' href="#">ContactUs<i class="fa fa-address-book"></i></a>
     </li>
     <li class="nav-item dropdown">
       <a class="nav-link dropdown-toggle" id='a' href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -30,11 +30,11 @@ color:white;
       </a>
       <div class="dropdown-menu"   aria-labelledby="navbarDropdownMenuLink">
       <a class="dropdown-item"   href="comRegister.php">Business</a>
-       
+      <a class="dropdown-item"   href="hall_Reg.php">Hall</a>
        
       </div>
     <li class="nav-item ">
-      <a class="nav-link" id='a' href="login.php">Sign/Signup<i class="fa fa-signed"></i></a>
+      <a class="nav-link" id='a' href="login.php">Sign/Signup<i class="fa fa-sign-up"></i></a>
     </li>
 
 
