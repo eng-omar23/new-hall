@@ -317,7 +317,7 @@ button{
 </style>
 
 <div class="cont mt-5">
-    <form method="post" action="sigin_process.php" id="signin">
+    <form id="loginForm" method="post" action="loginprocess.php" id="signin">
 
    
     <div class="form sign-in">
@@ -330,7 +330,7 @@ button{
         <span>Password</span>
         <input type="password" name="password">
       </label>
-      <button class="submit" id="btndsigin" type="button">Sign In</button>
+      <button class="submit" id="btnlogin" type="button">Sign In</button>
       <p class="forgot-pass">Forgot Password ?</p>
       </form>
       <div class="social-media">
@@ -342,6 +342,13 @@ button{
         </ul>
       </div>
     </div>
+
+
+
+
+
+
+
 
     <div class="sub-cont">
       <div class="img">
@@ -387,4 +394,42 @@ button{
 		document.querySelector('.cont').classList.toggle('s-signup')
 	}
 );
+
+$(document).ready(function(){
+      
+      $("#error").css("display","none");
+      $("#success").css("display","none");
+  })
+$("#signup").submit(function(e){   
+
+
+
+  e.preventDefault();
+
+  $.ajax({
+      url:"facility_handler.php",
+      data: new FormData($(this)[0]),
+      cache: false,
+      contentType: false,
+      processData: false,
+      method: 'POST',
+      type: 'POST',
+      success:function(resp){
+
+          var res=jQuery.parseJSON(resp);
+          if (res.status==200){
+              $("#success").css("display","block");
+              $("#success").text(res.message);
+          }
+          else if (res.status==404){
+              $("#success").css("display","none");
+              $("#error").css("display","block");
+              $("#error").text(res.message);
+          }
+      }
+  });
+
+
+});
+
   </script>
