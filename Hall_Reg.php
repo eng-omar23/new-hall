@@ -8,11 +8,15 @@ body{
     background-color: white;
     background: #000;
     color:white;
+ 
+    text-align: center ;
+
     text-align: center;
     background-color: white;
 }
 .container{
      margin-top: 55px;
+
 }
 
 </style>
