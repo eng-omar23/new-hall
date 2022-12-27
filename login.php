@@ -89,7 +89,8 @@ button{
 
 .submit{
   margin-top: 40px;
-  margin-bottom: 30px;
+  margin-bottom: 50px;
+  margin-top: 15px;
   text-transform: uppercase;
   font-weight: 600;
   font-family: 'Nunito', sans-serif;
@@ -317,22 +318,23 @@ button{
 </style>
 
 <div class="cont mt-5">
-    <form id="loginForm" method="post" action="loginprocess.php" id="signin">
-
-   
+    <form  method="post" Action="login_handler.php"> 
     <div class="form sign-in">
       <h2>Sign In</h2>
       <label>
         <span>Email Address</span>
-        <input id="email" name="email" type="email" name="email">
+        <input id="email"  type="email" name="email">
       </label>
       <label>
         <span>Password</span>
         <input type="password" name="password">
       </label>
-      <button class="submit" id="btnlogin" type="button">Sign In</button>
-      <p class="forgot-pass">Forgot Password ?</p>
+      <button type="submit" class="submit" name="submit" >Sign In</button>
+      <p href="forgetprocess.php" class="forgot-pass">Forgot Password ?</p>
       </form>
+
+
+
       <div class="social-media">
         <ul>
           <li><img src="https://raw.githubusercontent.com/abo-elnoUr/public-assets/master/facebook.png"></li>
@@ -365,11 +367,16 @@ button{
           <span class="m-in">Sign In</span>
         </div>
       </div>
-      <div class="form sign-up" id="signup"  method="post" action='signup_process.php'    >
+      <form  method="Post" Action="signup_handler.php" >
+      <div class="form sign-up">
         <h2>Sign Up</h2>
         <label>
           <span>Name</span>
           <input name="name" id="name" type="text">
+        </label>
+        <label>
+          <span>Reference Company</span>
+          <input name="cname" id="name" type="text">
         </label>
         <label>
           <span>Email</span>
@@ -383,11 +390,15 @@ button{
           <span>Confirm Password</span>
           <input id="confirmpassword" name="comfirmpassword" type="password">
         </label>
-        <button type="button" id="btn" class="submit">Sign Up Now</button>
+        <button type="submit"  name="btnSignup" class="submit">Sign Up Now</button>
       </div>
     </div>
   </div>
+  </form>
 
+
+
+  
   <script>
     document.querySelector('.img-btn').addEventListener('click', function()
 	{
@@ -395,41 +406,9 @@ button{
 	}
 );
 
-$(document).ready(function(){
-      
-      $("#error").css("display","none");
-      $("#success").css("display","none");
-  })
-$("#signup").submit(function(e){   
 
 
 
-  e.preventDefault();
 
-  $.ajax({
-      url:"facility_handler.php",
-      data: new FormData($(this)[0]),
-      cache: false,
-      contentType: false,
-      processData: false,
-      method: 'POST',
-      type: 'POST',
-      success:function(resp){
-
-          var res=jQuery.parseJSON(resp);
-          if (res.status==200){
-              $("#success").css("display","block");
-              $("#success").text(res.message);
-          }
-          else if (res.status==404){
-              $("#success").css("display","none");
-              $("#error").css("display","block");
-              $("#error").text(res.message);
-          }
-      }
-  });
-
-
-});
 
   </script>
