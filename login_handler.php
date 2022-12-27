@@ -1,41 +1,47 @@
 <?php
+ //session_start();	
+  include("conn.php"); 
+  $email=$_POST['email'];
+  $password=$_POST['password'];
 
-include("conn.php");
 
-if(isset($_POST["submit"])){
+  if(isset($_POST['submit']))
+  {
+  
+
+      $query = mysqli_query($conn,"select * from users where email='$email' and password='$password'");
+      $res=mysqli_fetch_array($query);
+      $type=$res['type'];
+      $id=$res['company_id'];
+      
+      if(mysqli_num_rows($query)>0){
+
+        if($type=='business'){
+            header("location:Admin/?id='$id'");
+        }
+        else if($type='Admins'){
+            header("location:nav.php");  
+        }
+        else{
+            echo "<center><h4 style='color: red;' class='mt-4'>No appropiate credantials found</h4></center>";
+            include("login.php");
+
+        }
+            
+        
+      }
+
+      else
+      {
+         echo "<center><h4 style='color: red;' class='mt-4'>Wrong credientails please Try Again</h4></center>";
+     include("login.php");
+        
+       
+      }
 
 
-$email=$_POST["email"];
-$pass=$_POST["password"];
-
-$sql="select * from users where email='$email' ";
-$check_email=mysqli_query($conn,$sql);
-
-if(mysqli_num_rows($check_email)){
-     
-$query=mysqli_query($conn,"select * from users where email='$email' and password='$pass'");
-$data=mysqli_fetch_assoc($query);
-$type=$data['type'];
-$id=$data=['id'];
-if($query){
-    if($type="business"){
-        header("location:Admin/js/index.php?id='$id'");
     }
-    else if($type=='Admin'){
-   header("location:navbar.php");
-    }
-
-
-}
-else{
-    echo "wrong user or pass ";
-}
-}
-else{
-    exit("this email does not exist ".$email);
-}
-
-}
-
-
+  
 ?>
+
+
