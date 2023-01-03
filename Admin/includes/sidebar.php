@@ -39,7 +39,7 @@
                         <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
                             <nav class="sb-sidenav-menu-nested nav">
                             <a class="nav-link" href="booking.php">Boooking</a>
-                                <a class="nav-link" href="customers">customers</a>
+                                <a class="nav-link" href="customers.php">customers</a>
                                 <a class="nav-link" href="payment.php">Payment</a>
                               
                             </nav>
@@ -69,8 +69,10 @@
             </div>
         </div>
         <div class="sb-sidenav-footer">
-            <div class="small">Logged in as:</div>
-            Start Bootstrap
+            <div class="small">Logged in as:   omar</div>
+
         </div>
     </nav>
 </div>
+<?php
+?>

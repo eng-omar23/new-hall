@@ -27,10 +27,10 @@ color:white;
 <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
   <ul class="navbar-nav ">
     <li class="nav-item ">
-      <a class="nav-link" id='a' href="#">Home <i class="fa fa-home"></i></a>
+      <a class="nav-link" id='a' href="profile.php">Home </a>
     </li>
     <li class="nav-item ">
-      <a class="nav-link" id='a' href="contact.php">Contact<i class="fa fa-address-book"></i></a>
+      <a class="nav-link" id='a' href="contact.php">Contact</i></a>
     </li>
     <li class="nav-item dropdown">
       <a class="nav-link dropdown-toggle" id='a' href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

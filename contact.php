@@ -4,26 +4,28 @@ include("nav.php");
 <style>
     body {
   padding-top: 25px;
-  background-color: #454545;
+  background-color: white;
   margin-left: 10px;
   margin-right: 10px;
 }
 .container {
-  max-width: 500px;
+  max-width: 700px;
   margin: 0 auto;
 
   text-align: center;
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
   border-radius: 6px;
-  background-color: #fafafa;
+  background-color: 	#0dcaf0;
 }
 .head {
   -webkit-border-radius: 6px 6px 0px 0px;
   -moz-border-radius: 6px 6px 0px 0px;
   border-radius: 6px 6px 0px 0px;
-  background-color: #00bfff;
-  color: #fafafa;
+  background-color: 	#0dcaf0;
+  color: whitesmoke;
+ 
+
 
 
 
@@ -78,7 +80,7 @@ textarea {
 button {
   margin-top: 15px;
   margin-bottom: 25px;
-  background-color: #00bfff;
+  background-color: #cecece;
   padding: 12px 45px;
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
@@ -121,9 +123,7 @@ label.error {
   button {
     width: 90%;
   }
-  body {
-    padding-top: 10px;
-  }
+
 }
 .message {
   font-family: "Source Sans Pro", arial, sans-serif;
@@ -149,10 +149,10 @@ contact form created for treehouse competition.
 
 
 
-<form id="contact">
-  <div class="container fluid mt-5">
-    <div class="head ">
-      <h2>Feel free to reach us</h2>
+<form id="contact" action="contact_process.php">
+  <div class="container mt-5">
+    <div class="head">
+      <h2>Hall Booking Platform</h2>
     </div>
     <input type="text" name="name" placeholder="Name" /><br />
     <input  type="email" name="email" placeholder="Email" /><br />
@@ -164,7 +164,7 @@ contact form created for treehouse competition.
   </div>
 </form>
 
-<script>// When the browser is ready...
+<script>
 
 
 

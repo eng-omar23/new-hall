@@ -1,12 +1,21 @@
 <?php
-include("header.php");
+include("nav.php");
 include ("conn.php");
 
 ?>
 
 <!DOCTYPE html>
 <html>
+
+<style>
+  body{
+
+  margin-top: 5%;
+
+  }
+</style>
 <body>
+
 <div class="container-lg mt-2 text-center">
 <div class="card">
   <h5 class="card-header bg-info p-1 text-white">Company Registration</h5>

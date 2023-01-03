@@ -38,93 +38,171 @@
   }
 }
 </style>
-<head>
-  <div class="container mt-5">
-    <div>
+<?php
+$query=mysqli_query($conn,"select * from company_reg where id=9");
+$data=mysqli_fetch_array($query);
+?>
+    <div class="container-fliud mt-5">
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
       <div class="cards-wrapper">
       <div class="card">
-        <img src="image/hall4.jpg" class="card-img-top" alt="...">
+        <img src="<?php echo $data['company_logo']?>" class="card-img-top" alt="...">
         <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+          <h5 class="card-title"><?php echo $data['Name']?></h5>
+          <h7 class="card-title"><?php echo $data['phone']?></h7>
+          <p class="card-text"><?php echo $data['Description']?></p>
+          <a href="halls.php?id=<?php echo $data['id']?>" class="btn btn-primary">See Available halls<a>
         </div>
       </div>
+      <?php
+      $query=mysqli_query($conn,"select * from company_reg where id=10");
+      $data=mysqli_fetch_array($query);
+      ?>
       <div class="card d-none d-md-block">
-        <img src="image/istockphoto-584573082-612x612.jpg" class="card-img-top" alt="...">
+      <img src="<?php echo $data['company_logo']?>" class="card-img-top" alt="...">
         <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+          <h5 class="card-title"><?php echo $data['Name']?></h5>
+          <h7 class="card-title"><?php echo $data['phone']?></h7>
+          <p class="card-text"><?php echo $data['Description']?></p>
+          <a href="halls.php?id=<?php echo $data['id']?>" class="btn btn-primary">See Available halls<a>
         </div>
-      </div>
+      </div> <?php
+      $query=mysqli_query($conn,"select * from company_reg where id=11");
+      $data=mysqli_fetch_array($query);
+      ?>
       <div class="card d-none d-md-block">
-        <img src="image/andrew tate.jpg" class="card-img-top" alt="...">
+      <img src="<?php echo $data['company_logo']?>" class="card-img-top" alt="...">
         <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+          <h5 class="card-title"><?php echo $data['Name']?></h5>
+          <h7 class="card-title"><?php echo $data['phone']?></h7>
+          <p class="card-text"><?php echo $data['Description']?></p>
+          <a href="halls.php?id=<?php echo $data['id']?>" class="btn btn-primary">See Available halls<a>
+        </div>
+      </div><?php
+      $query=mysqli_query($conn,"select * from company_reg where id=12");
+      $data=mysqli_fetch_array($query);
+      ?>
+      <div class="card d-none d-md-block">
+      <img src="<?php echo $data['company_logo']?>" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title"><?php echo $data['Name']?></h5>
+          <h7 class="card-title"><?php echo $data['phone']?></h7>
+          <p class="card-text"><?php echo $data['Description']?></p>
+          <a href="halls.php?id=<?php echo $data['id']?>" class="btn btn-primary">See Available halls<a>
         </div>
       </div>
+ 
+      
     </div>
+    </div>
+    <?php
+         $query=mysqli_query($conn,"select * from company_reg where id=13");
+         $data=mysqli_fetch_array($query);
+    ?>
+    <div class="carousel-item">
+      <div class="cards-wrapper">
+        <div class="card">
+        <img src="<?php echo $data['company_logo']?>" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title"><?php echo $data['Name']?></h5>
+          <h7 class="card-title"><?php echo $data['phone']?></h7>
+          <p class="card-text"><?php echo $data['Description']?></p>
+          <a href="halls.php?id=<?php echo $data['id']?>" class="btn btn-primary">See Available halls<a>
+          </div>
+        </div>
+        <?php
+      $query=mysqli_query($conn,"select * from company_reg where id=15");
+      $data=mysqli_fetch_array($query);
+      ?>
+      <div class="card d-none d-md-block">
+      <img src="<?php echo $data['company_logo']?>" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title"><?php echo $data['Name']?></h5>
+          <h7 class="card-title"><?php echo $data['phone']?></h7>
+          <p class="card-text"><?php echo $data['Description']?></p>
+          <a href="halls.php?id=<?php echo $data['id']?>" class="btn btn-primary">See Available halls<a>
+        </div>
+      </div>
+      <?php
+      $query=mysqli_query($conn,"select * from company_reg where id=15");
+      $data=mysqli_fetch_array($query);
+      ?>
+      <div class="card d-none d-md-block">
+      <img src="<?php echo $data['company_logo']?>" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title"><?php echo $data['Name']?></h5>
+          <h7 class="card-title"><?php echo $data['phone']?></h7>
+          <p class="card-text"><?php echo $data['Description']?></p>
+          <a href="halls.php?id=<?php echo $data['id']?>" class="btn btn-primary">See Available halls<a>
+        </div>
+      </div>   
+      <?php
+      $query=mysqli_query($conn,"select * from company_reg where id=11");
+      $data=mysqli_fetch_array($query);
+      ?>
+      <div class="card d-none d-md-block">
+      <img src="<?php echo $data['company_logo']?>" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title"><?php echo $data['Name']?></h5>
+          <h7 class="card-title"><?php echo $data['phone']?></h7>
+          <p class="card-text"><?php echo $data['Description']?></p>
+          <a href="halls.php?id=<?php echo $data['id']?>" class="btn btn-primary">See Available halls<a>
+        </div>
+      </div>
+      </div>
     </div>
     <div class="carousel-item">
       <div class="cards-wrapper">
         <div class="card">
-          <img src="image/hall3.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+        <img src="<?php echo $data['company_logo']?>" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title"><?php echo $data['Name']?></h5>
+          <h7 class="card-title"><?php echo $data['phone']?></h7>
+          <p class="card-text"><?php echo $data['Description']?></p>
+          <a href="halls.php?id=<?php echo $data['id']?>" class="btn btn-primary">See Available halls<a>
           </div>
         </div>
-        <div class="card d-none d-md-block">
-          <img src="image/hall3.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
-        <div class="card d-none d-md-block">
-          <img src="image/andrew tate.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
+        <?php
+      $query=mysqli_query($conn,"select * from company_reg where id=15");
+      $data=mysqli_fetch_array($query);
+      ?>
+      <div class="card d-none d-md-block">
+      <img src="<?php echo $data['company_logo']?>" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title"><?php echo $data['Name']?></h5>
+          <h7 class="card-title"><?php echo $data['phone']?></h7>
+          <p class="card-text"><?php echo $data['Description']?></p>
+          <a href="halls.php?id=<?php echo $data['id']?>" class="btn btn-primary">See Available halls<a>
         </div>
       </div>
-    </div>
-    <div class="carousel-item">
-      <div class="cards-wrapper">
-        <div class="card">
-          <img src="image/4.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
+      <?php
+      $query=mysqli_query($conn,"select * from company_reg where id=15");
+      $data=mysqli_fetch_array($query);
+      ?>
+      <div class="card d-none d-md-block">
+      <img src="<?php echo $data['company_logo']?>" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title"><?php echo $data['Name']?></h5>
+          <h7 class="card-title"><?php echo $data['phone']?></h7>
+          <p class="card-text"><?php echo $data['Description']?></p>
+          <a href="halls.php?id=<?php echo $data['id']?>" class="btn btn-primary">See Available halls<a>
         </div>
-        <div class="card d-none d-md-block">
-          <img src="image/hall2.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
+      </div>   
+      <?php
+      $query=mysqli_query($conn,"select * from company_reg where id=11");
+      $data=mysqli_fetch_array($query);
+      ?>
+      <div class="card d-none d-md-block">
+      <img src="<?php echo $data['company_logo']?>" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title"><?php echo $data['Name']?></h5>
+          <h7 class="card-title"><?php echo $data['phone']?></h7>
+          <p class="card-text"><?php echo $data['Description']?></p>
+          <a href="halls.php?id=<?php echo $data['id']?>" class="btn btn-primary">See Available halls<a>
         </div>
-        <div class="card d-none d-md-block">
-          <img src="image/hall4.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
+      </div>
       </div>
     </div>
   </div>

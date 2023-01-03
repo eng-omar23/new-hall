@@ -1,29 +1,21 @@
 <?php 
 include("conn.php");
-include("header.php");
+include("nav.php");
 ?> 
 <style>
 
 body{
-    background-color: white;
-    background: #000;
-    color:white;
- 
-    text-align: center ;
 
-    text-align: center;
-    background-color: white;
-}
-.container{
-     margin-top: 55px;
+    margin-top: 5%;
 
 }
+
 
 </style>
 
 <div class="container justify-center mt-5">
     <div class="card shadow">
-        <div class="card-header bg bg-dark text-center">Hall Registration</div>
+        <div class="card-header bg bg-info  text-center text-white">Hall Registration</div>
         <div class="card-body">
 
   <div class="alert alert-danger" id="error"> </div>
