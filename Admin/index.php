@@ -1,8 +1,13 @@
 <?php
 include("includes/header.php");
+include("../Admin/../conn.php");
+$id=$_GET['id'];
+$query=mysqli_query($conn,"select * from company_reg where id='$id' ");
+$data=mysqli_fetch_assoc($query);
+
 ?>
 <div class="container-fluid px-4">
-    <h1 class="mt-4">Halls</h1>
+    <h1 class="mt-4"><?php echo $data['Name'] ?></h1>
     <ol class="breadcrumb mb-4">
         <li class="breadcrumb-item active">Dashboard</li>
     </ol>
