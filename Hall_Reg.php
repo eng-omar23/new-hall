@@ -85,6 +85,9 @@ body{
                 <label class="form-label" for="date">Date</label>
                
                 <input type="date" id="date" name="mdate" class="form-control">
+
+                <label class="form-label">Hall Description </label>
+      <textarea class="form-control" id='desc' name="desc" id="comment"></textarea>
                
                 <input type="submit" value="Save" class="btn btn-primary btn-sm mt-2 float-right">
 </form>
@@ -99,14 +102,7 @@ body{
                     $("#success").css("display","none");
                 })
              $("#hall_form").submit(function(e){   
-                var loc =$("location").val().length
-
-                if(loc==""){
-                    
-                    $("#location").css("display","block");
-                    return false;
-                }
-                
+       
           
 
                 e.preventDefault();
@@ -120,10 +116,12 @@ body{
                     method: 'POST',
                     type: 'POST',
                     success:function(resp){
+                        alert(resp)
                   
                         var res=jQuery.parseJSON(resp);
                         if (res.status==200){
                             $("#success").css("display","block");
+                            $("#error").css("display","none");
                             $("#success").text(res.message);
                         }
                         else if (res.status==404){

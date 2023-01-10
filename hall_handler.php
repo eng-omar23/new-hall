@@ -4,6 +4,7 @@ $hallid=$_POST['hallid'];
 $facilityid =$_POST['facilityid'];
 $company_id=$_POST['company_id'];
 $type=$_POST['type'];
+$desc=$_POST['desc'];
 $capacity=$_POST['capacity'];
 $location=$_POST["location"];
 $charge=$_POST['charge_perhead'];
@@ -14,7 +15,7 @@ $folder ="image/".$photo;
 
 
 if($hallid==null){   
-$sql="insert into halls values (null,'$company_id','$facilityid','$type','$location','$capacity','$charge','$folder','$mdate')";
+$sql="insert into halls values (null,'$company_id','$facilityid','$type','$location','$capacity','$charge','$folder','$desc','$mdate')";
 $query=mysqli_query($conn,$sql) or die(mysqli_error($conn));
 
 if($query){

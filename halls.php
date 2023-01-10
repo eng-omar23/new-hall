@@ -14,7 +14,7 @@ include("nav.php");
     <div class="row row-cols-4 rows-md-3 g-3">
 <?php
 $id=$_GET['id'];
-$query=mysqli_query($conn,"select * from halls where company_id='$id'");
+$query=mysqli_query($conn,"select * from halls  where company_id='$id'");
 if(mysqli_num_rows($query)>0){
 while($data=mysqli_fetch_array($query)){
 ?>
@@ -24,7 +24,8 @@ while($data=mysqli_fetch_array($query)){
   <h7 class="card-title">Location:<?php echo $data['location']?></h5><br>
     <h7 class="card-title">Price:<?php echo $data['charge_perhead']?>$ per person</h5>
     <p class="card-text">Capacity:<?php echo $data['capacity']?> Persons</p>
-    <a href="booking.php?id=<?php echo $data['id']?>" class="btn btn-primary">Book Now</a>
+    <p class="card-text">More Info:<?php echo $data['hall_desc']?> .</p>
+    <a href="booking.php?id=<?php echo $data['hall_id']?>" class="btn btn-primary">Book Now</a>
   </div>
 </div>
   <?php
