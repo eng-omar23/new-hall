@@ -25,10 +25,17 @@ if($cid!=""){
 
 
     $check=mysqli_query($conn,"select * from customers where email='$email'");
-    if(mysqli_num_rows($check)>0){
+    if(mysqli_num_rows($check)>!0){
+        $result = [
+            'message'=>'already exits',
+             'status'=>404
+            ];
+        echo json_encode($result);
+        return ;
+    }
+    else{
 
     
-
     $customerinfo="insert into customers values('$cid','$name','$email','$phone')";
     $query=mysqli_query($conn,$customerinfo);
 
@@ -58,17 +65,11 @@ if($cid!=""){
         return ;
     }
 }
-else{
-    $result = [
-        'message'=>'customer Already exists',
-         'status'=>404
-        ];
-    echo json_encode($result);
-    return ;
 }
 
 
-}
+
+
 
 
 
