@@ -35,7 +35,8 @@ if ($query) {
 } else {
 ?>
     <script>
-        alert("Failed To created an account");
+        alert("Failed To created an account ");
+        window.location = "login.php";
     </script>
 <?php
 }

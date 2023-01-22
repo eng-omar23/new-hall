@@ -16,13 +16,13 @@ include("nav.php");
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
   border-radius: 6px;
-  background-color: 	#0dcaf0;
+  background-color: 	darkgrey;
 }
 .head {
   -webkit-border-radius: 6px 6px 0px 0px;
   -moz-border-radius: 6px 6px 0px 0px;
   border-radius: 6px 6px 0px 0px;
-  background-color: 	#0dcaf0;
+  background-color: 	darkgrey;
   color: whitesmoke;
  
 
@@ -85,7 +85,7 @@ button {
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
   border-radius: 5px;
-  border: 1px solid #2abca7;
+  border: 1px solid blueviolet;
   -webkit-transition: 0.5s;
   transition: 0.5s;
   display: inline-block;

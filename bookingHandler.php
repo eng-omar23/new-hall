@@ -4,6 +4,7 @@ include("conn.php");
 $name=$_POST['name'];
 $email=$_POST['email'];
 $phone=$_POST['phone'];
+
 $cid=$_POST['cid'];
 $attendee=$_POST['attendee'];
 $due=$_POST['due'];
@@ -49,7 +50,7 @@ if($cid!=""){
     if($payment){
 
         $result = [
-            'message'=>'successfully Book Hall chech your for email further notice ',
+            'message'=>'successfully Book Hall chech your  email for further notice ',
              'status'=>200
             ];
         echo json_encode($result);
@@ -66,6 +67,7 @@ if($cid!=""){
     }
 }
 }
+
 
 
 

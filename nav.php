@@ -38,11 +38,11 @@ color:white;
       </a>
       <div class="dropdown-menu"   aria-labelledby="navbarDropdownMenuLink">
       <a class="dropdown-item"   href="comRegister.php">Business</a>
-      <a class="dropdown-item"   href="hall_Reg.php">Hall</a>
+ 
        
       </div>
     <li class="nav-item ">
-      <a class="nav-link" id='a' href="login.php">Sign/Signup<i class="fas fa-sign-in-alt"></i></a>
+      <a class="nav-link" id='a' href="login.php">Sign In<i class="fas fa-sign-in-alt"></i></a>
     </li>
 
 

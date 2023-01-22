@@ -1,7 +1,8 @@
-<?php 
+<?php
 include("conn.php");
-include("nav.php");
-?> 
+include("Bussiness/home.php");
+include("header.php");
+?>
 <style>
 
 body{
@@ -20,7 +21,7 @@ body{
 
   <div class="alert alert-danger" id="error"> </div>
 <div class="alert alert-success" id="success"></div>
-            <form id="hall_form" method="Post" action="hall_handler.php" enctype="multipart/form-data">
+            <form id="hall_form" method="Post" action="./hall/hall_handler.php" enctype="multipart/form-data">
                 
                 <input type="hidden"name="hallid" id="hallid">
                 <label class="form-label">Company Name</label>
@@ -33,27 +34,6 @@ body{
         while($data=mysqli_fetch_array($_query)){
             ?>
             <option value="<?php echo $data["id"];?>"><?php echo $data['Name']?></option>
-            <?php
-        }
-    }
-    else{
-        ?>
-        <option value="">No data Available</option>
-        <?php
-    }
-    ?>
-  </select>
-  <br>
-
-  <select class="form-control" id="facilityid" name="facilityid">
-    <option value="">chooose Facility for hall</option>
-    <?php 
-    $_query=mysqli_query($conn,"select * from facility");
-    if(mysqli_num_rows($_query)>0){
-        $_query=mysqli_query($conn,"select * from facility");
-        while($data=mysqli_fetch_array($_query)){
-            ?>
-            <option value="<?php echo $data["facility_id"];?>"><?php echo $data['facility_name']?></option>
             <?php
         }
     }
@@ -90,6 +70,8 @@ body{
       <textarea class="form-control" id='desc' name="desc" id="comment"></textarea>
                
                 <input type="submit" value="Save" class="btn btn-primary btn-sm mt-2 float-right">
+                <a href="./hall/hview.php?id=<?php echo $id ?>"class="btn btn-success btn-sm mt-2 mr-4 float-right">View record</a>
+
 </form>
 </div>
 </div>
@@ -108,7 +90,7 @@ body{
                 e.preventDefault();
 
                 $.ajax({
-                    url:"hall_handler.php",
+                    url:"./hall/hall_handler.php",
                     data: new FormData($(this)[0]),
                     cache: false,
                     contentType: false,

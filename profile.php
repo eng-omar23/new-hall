@@ -81,7 +81,7 @@ $data=mysqli_fetch_array($query);
           <a href="halls.php?id=<?php echo $data['id']?>" class="btn btn-primary">See Available halls<a>
         </div>
       </div><?php
-      $query=mysqli_query($conn,"select * from company_reg where id=12");
+      $query=mysqli_query($conn,"select * from company_reg where id=23");
       $data=mysqli_fetch_array($query);
       ?>
       <div class="card d-none d-md-block">
@@ -94,11 +94,11 @@ $data=mysqli_fetch_array($query);
         </div>
       </div>
  
-      
+ 
     </div>
     </div>
     <?php
-         $query=mysqli_query($conn,"select * from company_reg where id=13");
+         $query=mysqli_query($conn,"select * from company_reg where id=18");
          $data=mysqli_fetch_array($query);
     ?>
     <div class="carousel-item">
@@ -113,7 +113,7 @@ $data=mysqli_fetch_array($query);
           </div>
         </div>
         <?php
-      $query=mysqli_query($conn,"select * from company_reg where id=15");
+      $query=mysqli_query($conn,"select * from company_reg where id=21");
       $data=mysqli_fetch_array($query);
       ?>
       <div class="card d-none d-md-block">
@@ -139,7 +139,7 @@ $data=mysqli_fetch_array($query);
         </div>
       </div>   
       <?php
-      $query=mysqli_query($conn,"select * from company_reg where id=11");
+      $query=mysqli_query($conn,"select * from company_reg where id=21-1");
       $data=mysqli_fetch_array($query);
       ?>
       <div class="card d-none d-md-block">
@@ -151,6 +151,10 @@ $data=mysqli_fetch_array($query);
           <a href="halls.php?id=<?php echo $data['id']?>" class="btn btn-primary">See Available halls<a>
         </div>
       </div>
+      <?php
+      $query=mysqli_query($conn,"select * from company_reg where id=22");
+      $data=mysqli_fetch_array($query);
+      ?>
       </div>
     </div>
     <div class="carousel-item">
@@ -165,7 +169,7 @@ $data=mysqli_fetch_array($query);
           </div>
         </div>
         <?php
-      $query=mysqli_query($conn,"select * from company_reg where id=15");
+      $query=mysqli_query($conn,"select * from company_reg where id=16");
       $data=mysqli_fetch_array($query);
       ?>
       <div class="card d-none d-md-block">
@@ -178,7 +182,7 @@ $data=mysqli_fetch_array($query);
         </div>
       </div>
       <?php
-      $query=mysqli_query($conn,"select * from company_reg where id=15");
+      $query=mysqli_query($conn,"select * from company_reg where id=19");
       $data=mysqli_fetch_array($query);
       ?>
       <div class="card d-none d-md-block">
@@ -191,7 +195,7 @@ $data=mysqli_fetch_array($query);
         </div>
       </div>   
       <?php
-      $query=mysqli_query($conn,"select * from company_reg where id=11");
+      $query=mysqli_query($conn,"select * from company_reg where id=17");
       $data=mysqli_fetch_array($query);
       ?>
       <div class="card d-none d-md-block">

@@ -1,88 +1,100 @@
-<?php
+<?php 
+include("conn.php");
 include("nav.php");
-include ("conn.php");
-
-?>
-
-<!DOCTYPE html>
-<html>
-
+?> 
 <style>
-  body{
 
-  margin-top: 5%;
+body{
 
-  }
-</style>
-<body>
+    margin-top: 5%;
 
-<div class="container-lg mt-2 text-center">
-<div class="card">
-  <h5 class="card-header bg-info p-1 text-white">Company Registration</h5>
-  <div class="card-body">
-  <form action="comprocess.php" id="company_register" method="Post" enctype="multipart/form-data" >
-    <div class="row">
-      <label class="form-label">Company Name </label>
-      <input type="text" name="Name"  class="form-control">
-      <label class="form-label">Company Email</label>
-      <input type="text" name="Email"  class="form-control">\
-      <label class="form-label">Company Addres </label>
-      <input type="text" name="Address"  class="form-control">
-      <label class="form-label">Company Phone </label>
-      <input type="text" name="Phone"  class="form-control">
-      <label class="form-label">Company Logo </label>
-      <input type="file" name="Logo"  class="form-control">
-      <label class="form-label">Company Description </label>
-      <textarea class="form-control" id='desc' name="desc" id="comment"></textarea>
-
-      <input type="submit" class="btn btn-primary  m-2" name="save" value="Save Data">
-      </div>
-  </div>
-  
-	
-	</div>
-	<div id="displayDataTable" class="mt-3"></div>
-	
-</body>
-
-</html>
-<script>
-$(document).ready( function () {
-
-	displayData();
-   
-} );
-
-
-function delcom(id){
-    $.ajax({
-      url:"comprocess.php",
-      type:"post",
-      data:{deleteid:id},
-      success:function(data){
-        var obj = jQuery.parseJSON(data);
-        if (obj.status == 200) {
-            displayData();
-        }
-        if (obj.status == 404) {
-            $("#state").text(obj.message);
-        }
-      
-    }
-    });
 }
-/*function displayData(){
-        var displayData="true";
-        $.ajax({
-            url:"comprocess.php",
-            type:'post',
-            data:{
-            displaysend:displayData
 
-            },
-            success:function(data,status){
-            $('#displayDataTable').html(data);
-            }
-        });
-    }*/
-</script>
+
+</style>
+
+<div class="container justify-center mt-5">
+    <div class="card shadow">
+        <div class="card-header bg bg-info  text-center text-white">Company Registration</div>
+        <div class="card-body">
+
+  <div class="alert alert-danger" id="error"> </div>
+<div class="alert alert-success" id="success"></div>
+            <form id="company_reg" method="Post" action="./company/comprocess.php" enctype="multipart/form-data">
+                
+                <input type="hidden"name="cid" id="cid">
+                
+
+                <label class="form-label">company Name</label>
+                <input type="text"name="Name" id="Name" class="form-control" placeholder="Enter Company Name">
+               
+                <label class="form-label">Email</label>
+
+                <input type="text"name="Email" id="Email" class="form-control" placeholder="Enter Company Emal">
+
+                
+                <label class="form-label">Company Address</label>
+                <input type="text"name="Address" id="Address" class="form-control" placeholder="Enter Company Locaton">
+                
+                <label class="form-label">Phone</label>
+                <input type="text"name="Phone" id="Phone" class="form-control" placeholder="Enter Company Phone ">
+                
+                
+                
+                <label class="form-label">Company Photo</label>
+                <input type="file"name="Logo" id="logo" class="form-control">
+        
+
+                <label class="form-label">Company Description </label>
+      <textarea class="form-control" id='desc' name="desc" id="comment"></textarea>
+               
+                <input type="submit" value="Save" class="btn btn-primary btn-sm mt-2 float-right">
+</form>
+</div>
+</div>
+</div>
+
+            <script>
+                $(document).ready(function(){
+      
+                    $("#error").css("display","none");
+                    $("#success").css("display","none");
+                })
+             $("#company_reg").submit(function(e){ 
+              
+          
+
+                e.preventDefault();
+
+                $.ajax({
+                    url:"./company/comprocess.php",
+                    data: new FormData($(this)[0]),
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    method: 'POST',
+                    type: 'POST',
+                    success:function(resp){
+                        alert(res)
+                        var res=jQuery.parseJSON(resp);
+                       
+                        if (res.status==200){
+                            $("#success").css("display","block");
+                            $("#error").css("display","none");
+                            $("#success").text(res.message);
+                        }
+                        else if (res.status==404){
+                            $("#success").css("display","none");
+                            $("#error").css("display","block");
+                            $("#success").text(res.message);
+                        }
+                    }
+                });
+
+
+             });
+            
+            </script>
+        </div>
+
+ 

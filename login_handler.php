@@ -17,7 +17,7 @@
       if(mysqli_num_rows($query)>0){
 
         if($type=='business'){
-            header("location:Admin/index.php?id=$id");
+            header("location:Bussiness?id=$id ");
         }
         else if($type='Admins'){
             header("location:nav.php");  

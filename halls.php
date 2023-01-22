@@ -10,8 +10,8 @@ include("nav.php");
     margin-bottom: 49px;
   }
 </style>
-<div class="container text-center ">
-    <div class="row row-cols-4 rows-md-3 g-3">
+<div class="container-fluid text-center ">
+    <div class="row row-cols-12 rows-md-4 g-3">
 <?php
 $id=$_GET['id'];
 $query=mysqli_query($conn,"select * from halls  where company_id='$id'");
