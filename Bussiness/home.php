@@ -1,5 +1,6 @@
 <?php
 
+
 @include("../conn.php");
 include("header.php");
 ?>
@@ -17,6 +18,17 @@ include("header.php");
 
     }
 </style>
+<head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/js/select2.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+		
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- font awesome -->
+    <link  rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
+</head>
 <?php
 $id=$_GET['id'];
 $query=mysqli_query($conn,"select * from company_reg  where id='$id'");
@@ -43,7 +55,7 @@ $data=mysqli_fetch_array($query);
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item" href="Users.php">Users</a>
                         <a class="dropdown-item" href="../hall_Reg.php?id=<?php echo $data["id"];?>">Hall</a>
-                         <a class="dropdown-item" href="../facility.php?id=<?php echo $data["id"];?>">facility</a>
+                         <a class="dropdown-item" href="../facility/facilityview.php?id=<?php echo $data["id"];?>">facility</a>
                          <a class="dropdown-item" href="customers.php">customers</a>
                     </div>
                     <li class="nav-item dropdown">
@@ -58,10 +70,13 @@ $data=mysqli_fetch_array($query);
                     </div>
                     
                 <li class="nav-item ">
-                    <a class="nav-link" id='a' href="login.php">log Out</a>
+                    <a class="nav-link" id='a' href="../login.php">log Out</a>
                 </li>
 
 
             </ul>
 
 </nav>
+
+<script src="jquery.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>

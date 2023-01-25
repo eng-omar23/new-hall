@@ -75,7 +75,7 @@ body{
                     method: 'POST',
                     type: 'POST',
                     success:function(resp){
-                        alert(res)
+                     
                         var res=jQuery.parseJSON(resp);
                        
                         if (res.status==200){

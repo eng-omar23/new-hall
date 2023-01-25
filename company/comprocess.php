@@ -20,7 +20,6 @@ if ($cid == null) {
         return;
     }
     if (file_exists($folder)) {
-        exit("file already exits" . $folder);
         $result = [
             'message' => 'file Already exists',
             'status' => 404
@@ -50,8 +49,8 @@ if ($cid == null) {
                 return;
             } else {
                 $result = [
-                    'message' => 'Falure',
-                    'status' => 200
+                    'message' => 'Failure to register ',
+                    'status' => 404
                 ];
                 echo json_encode($result);
                 return;

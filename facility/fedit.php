@@ -19,7 +19,7 @@ include("header.php");
 
 $id = $_GET['fid'];
 $cid= $_GET['id'];
-$sql="select * from facility where facility_id='$id'";
+$sql="Select * from facility_view where companyid ='$cid' and fid='$id'";
 $query=mysqli_query($conn,$sql);
 $row=mysqli_fetch_array($query);
 
@@ -33,9 +33,9 @@ $row=mysqli_fetch_array($query);
             <div class="alert alert-success" id="success"></div>
             <form id="fall_form" method="Post" action="facility_handler.php">
 
-                <input type="hidden" name="facilityid" id="facilityid" value="<?php echo $row['facility_id']?>">
+                <input type="hidden" name="facilityid" id="facilityid" value="<?php echo $row['fid']?>">
                 <select class="form-control form-control-sm select2 text-black" id="hall_id" name="hall_id">
-                    <option value="hall_id"> <?php echo $row["hall_id"]?></option>
+                    <option value="<?php echo $row["hid"]?>"> <?php echo $row["htype"]?></option>
 
                     <?php
                     $_query = mysqli_query($conn, "select * from halls where Company_id='$cid'");
@@ -56,11 +56,11 @@ $row=mysqli_fetch_array($query);
 
 
                 <label class="form-label">Facility Name</label>
-                <input type="text" name="name" id="name" class="form-control form-control-sm" value="<?php echo $row['facility_name']?>">
+                <input type="text" name="name" id="name" class="form-control form-control-sm" value="<?php echo $row['fname']?>">
 
                 <label class="form-label">Price</label>
 
-                <input type="text" name="price" id="price" class="form-control form-control-sm" value="<?php echo $row['Price']?>">
+                <input type="text" name="price" id="price" class="form-control form-control-sm" value="<?php echo $row['fprice']?>">
               
                 <input type="submit" value="Update" class="btn btn-primary btn-sm mt-2 float-right">
                

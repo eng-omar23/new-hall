@@ -21,9 +21,7 @@ $id = $_GET['id'];
 $sql="select * from company_reg where id='$id' ";
 $query=mysqli_query($conn,$sql);
 $data=mysqli_fetch_array($query);
-
-
-
+$id=$data['id'];
 ?>
 
 <div class="container justify-center">
@@ -67,7 +65,7 @@ $data=mysqli_fetch_array($query);
 
 
                 <input type="submit" value="Save" class="btn btn-primary btn-sm mt-2 float-right">
-                <a href="./facility/facilityview.php?id=<?php echo $id ?>"class="btn btn-success btn-sm mt-2 mr-4 float-right">View record</a>
+                <a href="./facility/facilityview.php?id=<?php echo $id ?>&&fid=<?php echo $id ?> class="btn btn-success btn-sm mt-2 mr-4 float-right">View record</a>
 
 
 

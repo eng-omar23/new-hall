@@ -13,6 +13,86 @@ include("../Bussiness/home.php");
     }
 
 </style>
+
+
+<?php
+
+$id = $_GET['id'];
+$sql="select * from company_reg where id='$id' ";
+$query=mysqli_query($conn,$sql);
+$data=mysqli_fetch_array($query);
+
+
+
+?>
+<div class="container my-3">
+    <div class="d-flex justify-content-between m-2">
+      <h1 class="text-center"> facility  Form</h1>
+      
+      <button type="button" id="callModal" class="btn btn-dark my-3" data-bs-toggle="modal" data-bs-target="#completeModal"><i class="fa-solid fa-user-plus"></i> Add New Facility</button>
+      
+    </div>
+    <div id="displayDataTable"></div>
+  </div>
+  <!-- Insert Modal -->
+<div class="modal fade" id="completeModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="completeModal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">New facility</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+     
+
+
+            <div class="alert alert-danger" id="error"> </div>
+            <div class="alert alert-success" id="success"></div>
+            <form id="fall_form" method="Post" action="facility_handler.php">
+
+                <input type="hidden" name="facilityid" id="facilityid">
+                <select class="form-control form-control-sm select2 text-black" id="hall_id" name="hall_id">
+
+                    <?php
+                    $_query = mysqli_query($conn, "select * from halls where Company_id='$id' ");
+                    if (mysqli_num_rows($_query) > 0) {
+                        $_query = mysqli_query($conn, "select * from halls where Company_id='$id'");
+                        while ($data = mysqli_fetch_array($_query)) {
+                    ?>
+               
+                            <option value="<?php echo $data["hall_id"]; ?>"><?php echo $data['hall_type'] ?></option>
+                        <?php
+                        }
+                    } else {
+                        ?>
+                        <option value="">No data Available</option>
+                    <?php
+                    }
+                    ?>
+                </select>
+
+
+                <label class="form-label">Facility Name</label>
+                <input type="text" name="name" id="name" class="form-control form-control-sm" placeholder="Enter Facility Name">
+
+                <label class="form-label">Price</label>
+
+                <input type="text" name="price" id="price" class="form-control form-control-sm" placeholder="Enter facility Price ">
+
+
+
+                <input type="submit" value="Save" class="btn btn-primary btn-sm mt-2 float-right">
+               
+
+            </form>
+        </div>
+    </div>
+</div>
+      </div>
+
+    </div>
+  </div>
+</div>
 <table class="table table-bordered" id="myTable">
     <thead  class="table-dark">
 
@@ -51,8 +131,8 @@ include("../Bussiness/home.php");
        
               
         <td>
-        <a  href="fedit.php?fid=<?php echo $data["facility_id"]?>&&id=<?php echo $id?>"class="btn btn-warning">EDIT</a> ||
-        <a href="facilityDel.php?fid=<?php echo $data["facility_id"]?>&&id=<?php echo $id?>"class="btn btn-danger">DELETE</a>
+        <a  href="fedit.php?fid=<?php echo $data["facility_id"]?>&&id=<?php echo $id?>"class="btn btn-warning"><i class="fas fa-edit"></i></a> ||
+        <a href="facilityDel.php?fid=<?php echo $data["facility_id"]?>&&id=<?php echo $id?>"class="btn btn-danger"><i class="fas fa-trash"></i></a>
         </td>
 
     </tr>
@@ -69,9 +149,47 @@ include("../Bussiness/home.php");
 
 </tbody>
 </table>
-<script>
 
-$(document).ready( function () {
-    $('#myTable').DataTable();
-} );
+
 </script>
+
+
+<script>
+    $(document).ready(function() {
+        $('#myTable').DataTable();
+
+        $("#error").css("display", "none");
+        $("#success").css("display", "none");
+
+
+
+    })
+    $("#fall_form").submit(function(e) {
+        e.preventDefault();
+        $.ajax({
+            url: "facility_handler.php",
+            data: new FormData($(this)[0]),
+            cache: false,
+            contentType: false,
+            processData: false,
+            method: 'POST',
+            type: 'POST',
+            success: function(resp) {
+                alert(resp)
+
+                var res = jQuery.parseJSON(resp);
+                if (res.status == 200) {
+                    $("#success").css("display", "block");
+                    $("#success").text(res.message);
+                } else if (res.status == 404) {
+                    $("#success").css("display", "none");
+                    $("#error").css("display", "block");
+                    $("#error").text(res.message);
+                }
+            }
+        });
+
+
+    });
+</script>
+</div>

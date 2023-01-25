@@ -1,5 +1,5 @@
 <?php
- //session_start();	
+ session_start();	
   include("conn.php"); 
   $email=$_POST['email'];
   $password=$_POST['password'];
@@ -18,6 +18,7 @@
 
         if($type=='business'){
             header("location:Bussiness?id=$id ");
+            $_SESSION["$id"];
         }
         else if($type='Admins'){
             header("location:nav.php");  
