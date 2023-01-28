@@ -31,9 +31,7 @@ $data=mysqli_fetch_array($query);
       
       <button type="button" id="callModal" class="btn btn-dark my-3" data-bs-toggle="modal" data-bs-target="#completeModal"><i class="fa-solid fa-user-plus"></i> Add New Facility</button>
       
-    </div>
-    <div id="displayDataTable"></div>
-  </div>
+
   <!-- Insert Modal -->
 <div class="modal fade" id="completeModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="completeModal" aria-hidden="true">
   <div class="modal-dialog">
@@ -48,7 +46,7 @@ $data=mysqli_fetch_array($query);
 
             <div class="alert alert-danger" id="error"> </div>
             <div class="alert alert-success" id="success"></div>
-            <form id="fall_form" method="Post" action="facility_handler.php">
+            <form id="fa_form" method="Post" action="facility_handler.php">
 
                 <input type="hidden" name="facilityid" id="facilityid">
                 <select class="form-control form-control-sm select2 text-black" id="hall_id" name="hall_id">
@@ -156,15 +154,15 @@ $data=mysqli_fetch_array($query);
 
 <script>
     $(document).ready(function() {
-        $('#myTable').DataTable();
 
         $("#error").css("display", "none");
         $("#success").css("display", "none");
 
+        $('#myTable').DataTable();
 
 
     })
-    $("#fall_form").submit(function(e) {
+    $("#fa_form").submit(function(e) {
         e.preventDefault();
         $.ajax({
             url: "facility_handler.php",

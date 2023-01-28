@@ -54,7 +54,7 @@ $data=mysqli_fetch_array($query);
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item" href="Users.php">Users</a>
-                        <a class="dropdown-item" href="../hall_Reg.php?id=<?php echo $data["id"];?>">Hall</a>
+                        <a class="dropdown-item" href="../hall/hview.php?id=<?php echo $data["id"];?>">Hall</a>
                          <a class="dropdown-item" href="../facility/facilityview.php?id=<?php echo $data["id"];?>">facility</a>
                          <a class="dropdown-item" href="customers.php">customers</a>
                     </div>
@@ -63,11 +63,25 @@ $data=mysqli_fetch_array($query);
                         Booking</i>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="../comRegister.php?id=<?php echo $data["id"];?>">Booking</a>
+                        <a class="dropdown-item" href="booking.php?id=<?php echo $data["id"];?>">Booking</a>
                         <a class="dropdown-item" href="hall_Reg.php">Payment</a>
                          <a class="dropdown-item" href="hall_Reg.php">cancellation</a>
-                         <a class="dropdown-item" href="hall_Reg.php">invoice</a>
+   
                     </div>
+                    </li>          <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id='a' href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Report</i>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="booking.php?id=<?php echo $data["id"];?>">Payment</a>
+                        <a class="dropdown-item" href="hall_Reg.php">Payment</a>
+                         <a class="dropdown-item" href="hall_Reg.php">cancellation</a>
+   
+                    </div>
+                    </li>
+                    
+                    
+          
                     
                 <li class="nav-item ">
                     <a class="nav-link" id='a' href="../login.php">log Out</a>

@@ -1,7 +1,6 @@
 <?php
 require '../conn.php';
 $hallid=$_POST['hallid'];
-$facilityid =$_POST['facilityid'];
 $company_id=$_POST['company_id'];
 $type=$_POST['type'];
 $desc=$_POST['desc'];
@@ -16,7 +15,7 @@ $folder ="../image/".$photo;
 
 if($hallid==null){   
 $sql="insert into halls values (null,'$company_id','$type','$location','$capacity','$charge','$folder','$desc','$mdate')";
-$query=mysqli_query($conn,$sql) or die(mysqli_error($conn));
+$query=mysqli_query($conn,$sql);
 
 if($query){
     move_uploaded_file($path,$folder);
@@ -29,11 +28,41 @@ if($query){
 }
 else{
 
-    $result = ['message'=>'Could Not Create new Hall', 'status'=>404];
+    $result = [
+    'message'=>'Could Not Create new Hall', 
+    'status'=>404
+];
     echo json_encode($result);
     return ;
 }
 }
+
+else{   
+
+ $sql="update halls set company_id='$company_id',hall_type='$type',location='$location',capacity='$capacity',
+ charge_perhead='$charge',hall_photo='$folder',hall_desc='$desc',date='$mdate' where hall_id='$hallid' ";
+    $query=mysqli_query($conn,$sql);
+    
+    if($query){
+        move_uploaded_file($path,$folder);
+        $result = [
+            'message'=>'successfully Updated a new row',
+             'status'=>200
+            ];
+        echo json_encode($result);
+        return ;
+    }
+    else{
+    
+        $result = [
+        'message'=>'Could Not Updated', 
+        'status'=>404
+    ];
+        echo json_encode($result);
+        return ;
+    }
+    }
+
 
 
 
