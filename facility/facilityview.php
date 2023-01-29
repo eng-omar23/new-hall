@@ -80,6 +80,7 @@ $data=mysqli_fetch_array($query);
 
 
                 <input type="submit" value="Save" class="btn btn-primary btn-sm mt-2 float-right">
+                <a href="facilityview.php?id=<?php echo $id ?>"class="btn btn-success btn-sm mt-2 mr-4 float-right">View record</a>
                
 
             </form>
