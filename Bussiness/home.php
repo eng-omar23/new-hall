@@ -63,11 +63,12 @@ $data=mysqli_fetch_array($query);
                         Booking</i>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="booking.php?id=<?php echo $data["id"];?>">Booking/Payment</a>
-                         <a class="dropdown-item" href="hall_Reg.php">cancellation</a>
+                        <a class="dropdown-item" href="../booking/booking.php?id=<?php echo $data["id"];?>">Booking</a>
+                        <a class="dropdown-item" href="booking.php?id=<?php echo $data["id"];?>">Payment</a>
    
-                    </div>
-                    </li>          <li class="nav-item dropdown">
+                        </div>
+                    </li>   
+                           <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id='a' href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Report</i>
                     </a>

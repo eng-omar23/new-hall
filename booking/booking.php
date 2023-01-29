@@ -1,4 +1,6 @@
 
+
+
 <?php
 include("../conn.php");
 include("../Bussiness/home.php");
@@ -27,9 +29,9 @@ $data=mysqli_fetch_array($query);
 ?>
 <div class="container my-3">
     <div class="d-flex justify-content-between m-2">
-      <h1 class="text-center"> facility  Form</h1>
+      <h1 class="text-center"> Booking Form</h1>
       
-      <button type="button" id="callModal" class="btn btn-dark my-3" data-bs-toggle="modal" data-bs-target="#completeModal"><i class="fa-solid fa-user-plus"></i> Add New Facility</button>
+      <button type="button" id="callModal" class="btn btn-dark my-3" data-bs-toggle="modal" data-bs-target="#completeModal"><i class="fa-solid fa-user-plus"></i> Add New Record</button>
       
 
   <!-- Insert Modal -->
@@ -37,18 +39,16 @@ $data=mysqli_fetch_array($query);
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">New facility</h5>
+        <h5 class="modal-title" id="staticBackdropLabel">New Booking</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-     
-
-
-            <div class="alert alert-danger" id="error"> </div>
+      <div class="alert alert-danger" id="error"> </div>
             <div class="alert alert-success" id="success"></div>
             <form id="fa_form" method="Post" action="facility_handler.php">
 
-                <input type="hidden" name="facilityid" id="facilityid">
+                <input type="hidden" name="bid" id="bid">
+                <label class="form-label">hall Name</label>
                 <select class="form-control form-control-sm select2 text-black" id="hall_id" name="hall_id">
 
                     <?php
@@ -68,14 +68,41 @@ $data=mysqli_fetch_array($query);
                     }
                     ?>
                 </select>
+                <label class="form-label">customers Name</label>
+                <select class="form-control form-control-sm select2 text-black" id="hall_id" name="hall_id">
+
+                    <?php
+                    $_query = mysqli_query($conn, "select * from customers where Company_id='$id' ");
+                    if (mysqli_num_rows($_query) > 0) {
+                        $_query = mysqli_query($conn, "select * from customers where Company_id='$id'");
+                        while ($data = mysqli_fetch_array($_query)) {
+                    ?>
+               
+                            <option value="<?php echo $data["custid"]; ?>"><?php echo $data['firstname'] ?></option>
+                        <?php
+                        }
+                    } else {
+                        ?>
+                        <option value="">No data Available</option>
+                    <?php
+                    }
+                    ?>
+                </select>
+                
 
 
-                <label class="form-label">Facility Name</label>
-                <input type="text" name="name" id="name" class="form-control form-control-sm" placeholder="Enter Facility Name">
+                <label class="form-label">attendee_no</label>
+                <input type="text" name="attendee_no" id="attendee_no" class="form-control form-control-sm" placeholder="Enter Facility Name">
 
                 <label class="form-label">Price</label>
-
-                <input type="text" name="price" id="price" class="form-control form-control-sm" placeholder="Enter facility Price ">
+                <select class="form-control form-control-sm select2 text-black" id="Status" name="Status">
+                <option value="">A</option>
+                 <option value="">A</option>
+                </select>
+                <label class="form-label">start date</label>
+                <input type="date" class="form-control form-control-sm" id="Start_date" name="Start_date"> 
+                <label class="form-label">end date</label>
+                <input type="date" class="form-control form-control-sm" id="end_date" name="end_date"> 
 
 
 
@@ -84,7 +111,7 @@ $data=mysqli_fetch_array($query);
                
 
             </form>
-        </div>
+            </div>
     </div>
 </div>
       </div>
@@ -148,11 +175,6 @@ $data=mysqli_fetch_array($query);
 
 </tbody>
 </table>
-
-
-
-
-
 
 <script>
     $(document).ready(function() {
