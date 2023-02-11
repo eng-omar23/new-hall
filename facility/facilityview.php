@@ -92,7 +92,16 @@ $data=mysqli_fetch_array($query);
     </div>
   </div>
 </div>
-<table class="table table-bordered" id="myTable">
+
+<div class="container-fluid">
+           <!-- DataTales Example -->
+           <div class="card shadow mb-4">    
+               <div class="card-header py-3">
+                   <h6 class="m-0 font-weight-bold text-dark">Faciltity Details</h6>
+               </div>
+               <div class="card-body">
+                   <div class="table-responsive">
+                   <table class="table table-bordered" id="myTable" width="100%" cellspacing="0">
     <thead  class="table-dark">
 
     <tr>
@@ -130,7 +139,7 @@ $data=mysqli_fetch_array($query);
        
               
         <td>
-        <a  href="fedit.php?fid=<?php echo $data["facility_id"]?>&&id=<?php echo $id?>"class="btn btn-warning"><i class="fas fa-edit"></i></a> ||
+        <a  href="fedit.php?fid=<?php echo $data["facility_id"]?>&&id=<?php echo $id?>"class="btn btn-warning"><i class="fas fa-edit"></i></a> 
         <a href="facilityDel.php?fid=<?php echo $data["facility_id"]?>&&id=<?php echo $id?>"class="btn btn-danger"><i class="fas fa-trash"></i></a>
         </td>
 
@@ -148,6 +157,9 @@ $data=mysqli_fetch_array($query);
 
 </tbody>
 </table>
+</div>
+               </div>
+           </div>
 
 
 

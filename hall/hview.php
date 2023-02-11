@@ -82,8 +82,15 @@ $id=$_GET['id'];
   </div>
 </div>
 
-
-<table class="table table-bordered" id="myTable">
+<div class="container-fluid">
+           <!-- DataTales Example -->
+           <div class="card shadow mb-4">    
+               <div class="card-header py-3">
+                   <h6 class="m-0 font-weight-bold text-dark">Faciltity Details</h6>
+               </div>
+               <div class="card-body">
+                   <div class="table-responsive">
+<table class="table table-bordered" id="myTable" >
     <thead class="table-dark">
 
         <tr>
@@ -95,8 +102,8 @@ $id=$_GET['id'];
             <td>charge_perhead</td>
      
             <td>hall_desc</td>
-            <td>EDIT</td>
-            <td>DELETE</td>
+            <td>Action</td>
+       
         </tr>
     </thead>
     <tbody>
@@ -122,8 +129,8 @@ $id=$_GET['id'];
                     <td><?php echo $data["capacity"] ?></td>
                     <td><?php echo $data["charge_perhead"] ?></td>
                     <td><?php echo $data["hall_desc"] ?></td>
-                   <td><a href="hedit.php?hid=<?php echo $data["hall_id"] ?>&&id=<?php echo $id ?>" class="btn btn-warning">EDIT</a></td>
-                   <td> <a href="hall_del.php?hid=<?php echo $data["hall_id"] ?>&&id=<?php echo $id ?>" class="btn btn-danger">DELETE</a></td>
+                   <td><a href="hedit.php?hid=<?php echo $data["hall_id"] ?>&&id=<?php echo $id ?>" class="btn btn-warning"><i class="fas fa-edit"></i></a>
+                 <a href="hall_del.php?hid=<?php echo $data["hall_id"] ?>&&id=<?php echo $id ?>" class="btn btn-danger"><i class="fas fa-trash"></i></a></td>
 
                 </tr>
         <?php

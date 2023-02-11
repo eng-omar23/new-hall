@@ -190,6 +190,7 @@ include("conn.php");
   $sql = "select * from halls where hall_id='$id'";
   $query = mysqli_query($conn, $sql);
   $data = mysqli_fetch_array($query);
+  
 
 
   $q = mysqli_query($conn, "select max(custid) as cid from customers ");
@@ -207,6 +208,7 @@ include("conn.php");
 
 
           <input type="hidden" id="cid" name="cid" value="<?php echo $cid ?>" required>
+          <input type="hidden" id="company_id" name="company_id" value="<?php echo $data['Company_id'] ?>" required>
 
 
           <div class="input-box">

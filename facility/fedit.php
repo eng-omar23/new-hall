@@ -63,6 +63,8 @@ $row=mysqli_fetch_array($query);
                 <input type="text" name="price" id="price" class="form-control form-control-sm" value="<?php echo $row['fprice']?>">
               
                 <input type="submit" value="Update" class="btn btn-primary btn-sm mt-2 float-right">
+                <a href="facilityview.php?id=<?php echo $cid ?>"class="btn btn-success btn-sm mt-2 mr-4 float-right">View record</a>
+               
                
 
 

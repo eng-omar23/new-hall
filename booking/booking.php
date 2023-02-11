@@ -20,9 +20,6 @@ include("../Bussiness/home.php");
 <?php
 
 $id = $_GET['id'];
-$sql="select * from company_reg where id='$id' ";
-$query=mysqli_query($conn,$sql);
-$data=mysqli_fetch_array($query);
 
 
 
@@ -45,31 +42,13 @@ $data=mysqli_fetch_array($query);
       <div class="modal-body">
       <div class="alert alert-danger" id="error"> </div>
             <div class="alert alert-success" id="success"></div>
-            <form id="fa_form" method="Post" action="facility_handler.php">
+            <form id="booking_form" method="Post" action="booking_handler.php">
 
-                <input type="hidden" name="bid" id="bid">
-                <label class="form-label">hall Name</label>
-                <select class="form-control form-control-sm select2 text-black" id="hall_id" name="hall_id">
-
-                    <?php
-                    $_query = mysqli_query($conn, "select * from halls where Company_id='$id' ");
-                    if (mysqli_num_rows($_query) > 0) {
-                        $_query = mysqli_query($conn, "select * from halls where Company_id='$id'");
-                        while ($data = mysqli_fetch_array($_query)) {
-                    ?>
-               
-                            <option value="<?php echo $data["hall_id"]; ?>"><?php echo $data['hall_type'] ?></option>
-                        <?php
-                        }
-                    } else {
-                        ?>
-                        <option value="">No data Available</option>
-                    <?php
-                    }
-                    ?>
-                </select>
+            <input type="hidden" name="bid" id="bid">   
+            <input type="hidden" name="company_id" id="company_id" value="<?php echo $id?>">
+            
                 <label class="form-label">customers Name</label>
-                <select class="form-control form-control-sm select2 text-black" id="hall_id" name="hall_id">
+                <select class="form-control form-control-sm select2 text-black" id="cid" name="cid">
 
                     <?php
                     $_query = mysqli_query($conn, "select * from customers where Company_id='$id' ");
@@ -87,27 +66,52 @@ $data=mysqli_fetch_array($query);
                     <?php
                     }
                     ?>
+
+                    <label for="hall_id">Hall Name</label>
                 </select>
-                
+                <select class="form-control form-control-sm select2 text-black" id="hall_id" name="hall_id">
+
+<?php
+$_query = mysqli_query($conn, "select * from halls where Company_id='$id'");
+if (mysqli_num_rows($_query) > 0) {
+    $_query = mysqli_query($conn, "select * from halls where Company_id='$id'");
+    while ($data = mysqli_fetch_array($_query)) {
+?>
+
+        <option value="<?php echo $data["hall_id"]; ?>"><?php echo $data['hall_type'] ?></option>
+    <?php
+    }
+} else {
+    ?>
+    <option value="">No data Available</option>
+<?php
+}
+?>
+</select>
+<label class="form-label">charge Perhead</label>
+                <input type="text" class="form-control form-control-sm" id="charge" name="charge" value="<?php echo $data['hall_type'] ?>">
 
 
-                <label class="form-label">attendee_no</label>
-                <input type="text" name="attendee_no" id="attendee_no" class="form-control form-control-sm" placeholder="Enter Facility Name">
-
-                <label class="form-label">Price</label>
-                <select class="form-control form-control-sm select2 text-black" id="Status" name="Status">
-                <option value="">A</option>
-                 <option value="">A</option>
-                </select>
+                <label class="form-label">Attendee No</label>
+                <input type="text" name="attendee" id="attendee_no" onchange="total();" class="form-control form-control-sm" placeholder="Enter Numver of attendee">
+                <label class="form-label">Amount Due</label>
+                <input type="text" name="amountdue" id="amountdue" class="form-control form-control-sm">
+                 
+        
+                <label class="form-label">Amount Paid </label>
+                <input type="text" class="form-control form-control-sm" onchange="Paid();" id="amountpaid" name="amountpaid"> 
+                <label class="form-label">Balance </label>
+                <input type="text" class="form-control form-control-sm" id="balance" name="balance"> 
+        
                 <label class="form-label">start date</label>
-                <input type="date" class="form-control form-control-sm" id="Start_date" name="Start_date"> 
+                <input type="date" class="form-control form-control-sm" id="sdate" name="sdate"> 
                 <label class="form-label">end date</label>
                 <input type="date" class="form-control form-control-sm" id="end_date" name="end_date"> 
 
 
 
                 <input type="submit" value="Save" class="btn btn-primary btn-sm mt-2 float-right">
-                <a href="facilityview.php?id=<?php echo $id ?>"class="btn btn-success btn-sm mt-2 mr-4 float-right">View record</a>
+                <a href=" booking.php?id=<?php echo $id ?>"class="btn btn-success btn-sm mt-2 mr-4 float-right">View record</a>
                
 
             </form>
@@ -119,15 +123,29 @@ $data=mysqli_fetch_array($query);
     </div>
   </div>
 </div>
+<div class="container-fluid">
+           <!-- DataTales Example -->
+           <div class="card shadow mb-4">    
+               <div class="card-header py-3">
+                   <h6 class="m-0 font-weight-bold text-dark">Booking Details</h6>
+               </div>
+               <div class="card-body">
+                   <div class="table-responsive">
 <table class="table table-bordered" id="myTable">
     <thead  class="table-dark">
 
     <tr>
     <td>SNO</td>
-        <td>Facility Name</td>
-        <td>Price</td>
-        <td>hall type</td>
-
+        <td>customers</td>
+        <td>status</td>
+        <td>hall</td>
+        <td>AttendeeNo</td>
+        <td>charging Amount</td>
+        <td>amountdue</td>
+        <td>amountPaid</td>
+        <td>balance</td>
+        <td>from Date</td>
+        <td>To Date</td>
         <td>Maniplate</td>
     </tr>
     </thead>
@@ -138,11 +156,13 @@ $data=mysqli_fetch_array($query);
     
      $id =$_GET['id']; 
      $n=1;
-   
-    $sql="Select f.*,h.* from facility f join halls h on f.hall_id=h.hall_id where company_id='$id'";
-    $query=mysqli_query($conn,$sql);
+     $sql="SELECT * from booking_view where company_id='$id'";
+     $query=mysqli_query($conn,$sql);
+
     if(mysqli_num_rows($query)>0){
-        $sql="Select f.*,h.* from facility f join halls h on f.hall_id=h.hall_id where company_id='$id'";
+        
+  $sql="SELECT * from booking_view where company_id='$id'";
+   $query=mysqli_query($conn,$sql);
         $query=mysqli_query($conn,$sql);
         while($data=mysqli_fetch_array($query)){
 
@@ -150,15 +170,21 @@ $data=mysqli_fetch_array($query);
         ?>
         <tr>
         <td><?php echo $n; ?></td>
-        <td><?php echo $data["facility_name"]?></td>
-        <td><?php echo $data["Price"]?></td>  
-        <td><?php echo $data["hall_type"]?></td> 
-    
-       
-              
+
+        <td><?php echo $data['firstname']?></td>
+        <td><?php echo $data['Status']?></td>     
+        <td><?php echo $data['hall_type']?></td>
+        <td><?php echo $data['attendee_no']?></td>    
+        <td><?php echo $data['charge_perhead']?></td>    
+         <td><?php echo $data['amountdue']?></td>
+         <td><?php echo $data['amountpaid']?></td>
+         <td><?php echo $data['balance']?></td>
+         <td><?php echo $data['Start_date']?></td>
+        <td><?php echo $data['end_date']?></td>
+           
         <td>
-        <a  href="fedit.php?fid=<?php echo $data["facility_id"]?>&&id=<?php echo $id?>"class="btn btn-warning"><i class="fas fa-edit"></i></a> ||
-        <a href="facilityDel.php?fid=<?php echo $data["facility_id"]?>&&id=<?php echo $id?>"class="btn btn-danger"><i class="fas fa-trash"></i></a>
+        <a  href="bookingedit.php?bid=<?php echo $data["bid"]?>&&id=<?php echo $id?>&&pid=<?php echo $data['pid']?>"class="btn btn-warning"><i class="fas fa-edit"></i></a> ||
+        <a href="booking_del.php?bid=<?php echo $data["bid"]?>&&id=<?php echo $id?>&&pid=<?php echo $data['pid']?>"class="btn btn-danger"><i class="fas fa-trash"></i></a>
         </td>
 
     </tr>
@@ -186,10 +212,10 @@ $data=mysqli_fetch_array($query);
 
 
     })
-    $("#fa_form").submit(function(e) {
+    $("#booking_form").submit(function(e) {
         e.preventDefault();
         $.ajax({
-            url: "facility_handler.php",
+            url: "booking_handler.php",
             data: new FormData($(this)[0]),
             cache: false,
             contentType: false,
@@ -213,5 +239,30 @@ $data=mysqli_fetch_array($query);
 
 
     });
+
+    function total() {
+    var nAttendee = parseInt(document.getElementById("attendee_no").value);
+    var chargeAmount = parseInt(document.getElementById("charge").value);
+
+
+
+    var total = nAttendee * chargeAmount;
+
+
+    document.getElementById("amountdue").value = total;
+
+  }
+  function Paid() {
+    var due = parseInt(document.getElementById("amountdue").value);
+    var paid = parseInt(document.getElementById("amountpaid").value);
+
+
+
+    var total = due - paid;
+
+
+    document.getElementById("balance").value = total;
+
+  }
 </script>
 </div>
