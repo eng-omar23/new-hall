@@ -69,13 +69,11 @@ include("../Bussiness/home.php");
 <?php
 $id=$_GET['id'];
 
-$sql="select count(bid) as number_of_booking from booking";
-
-
+$sql="select count(b.bid) as number_of_booking,h.* from booking b JOIN halls h on b.hall_id=h.hall_id WHERE h.company_id='$id'";
 
 $query=mysqli_query($conn,$sql);
 $data=mysqli_fetch_assoc($query);
-$sql=" select count(bid) as bid from booking where end_date=CURDATE()";
+$sql="select count(b.bid) as bid,h.* from booking b JOIN halls h on b.hall_id=h.hall_id WHERE h.company_id='$id' and b.Bdate=CURDATE();";
 $q=mysqli_query($conn,$sql);
 $row=mysqli_fetch_assoc($q);
 ?>

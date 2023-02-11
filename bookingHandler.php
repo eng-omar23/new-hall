@@ -1,6 +1,6 @@
 <?php
 include("conn.php");
-
+include("functions.php");
 $name=$_POST['name'];
 $email=$_POST['email'];
 $phone=$_POST['phone'];
@@ -14,6 +14,11 @@ $sdate=$_POST['date1'];
 $edate=$_POST['date2'];
 
 if($cid!=""){
+
+
+    //get last bookn id and insert to use for inserting payment 
+  $sql="select max(bid) from booking where company_id='$company_id'";
+    $bid=get_id($conn,$sql);
 
     $balance=$due-$paid;
 
@@ -42,7 +47,7 @@ if($cid!=""){
 
     $q=mysqli_query($conn,$booking);
 
-    $payment="insert into payment values(null,'$hall_id','$cid','$due','$paid','$balance','$edate')";
+    $payment="insert into payment values(null,'$hall_id','$cid','$due','$paid','$balance','$edate','$bid')";
 
     $pay_query=mysqli_query($conn,$payment);
     if($payment){

@@ -110,8 +110,9 @@ $id=$_GET['id'];
                     <td><?php echo $data["firstname"] ?></td>
                     <td><?php echo $data["phone"] ?></td>
                     <td><?php echo $data["email"] ?></td>
-                   <td><a href="custedit.php?cid=<?php echo $data["custid"] ?>&&id=<?php echo $id ?>" class="btn btn-warning">EDIT</a></td>
-                   <td> <a href="custdel.php?cid=<?php echo $data["custid"] ?>&&id=<?php echo $id ?>" class="btn btn-danger">DELETE</a></td>
+                   <td><a href="custedit.php?cid=<?php echo $data["custid"] ?>&&id=<?php echo $id ?>" class="btn btn-warning"> <i class="fa fa-edit"></i>
+                   </a></td>
+                   <td> <a href="custdel.php?cid=<?php echo $data["custid"] ?>&&id=<?php echo $id ?>" class="btn btn-danger"><i class="fa fa-trash"></i></a></td>
 
                 </tr>
         <?php

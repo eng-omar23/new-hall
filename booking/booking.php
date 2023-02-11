@@ -107,7 +107,7 @@ if (mysqli_num_rows($_query) > 0) {
                 <input type="date" class="form-control form-control-sm" id="sdate" name="sdate"> 
                 <label class="form-label">end date</label>
                 <input type="date" class="form-control form-control-sm" id="end_date" name="end_date"> 
-
+                
 
 
                 <input type="submit" value="Save" class="btn btn-primary btn-sm mt-2 float-right">
@@ -131,8 +131,8 @@ if (mysqli_num_rows($_query) > 0) {
                </div>
                <div class="card-body">
                    <div class="table-responsive">
-<table class="table table-bordered" id="myTable">
-    <thead  class="table-dark">
+<table class="table table-bordered" id="DataTable">
+    <thead  class="table-dark" id="DataTable"> 
 
     <tr>
     <td>SNO</td>
@@ -203,12 +203,13 @@ if (mysqli_num_rows($_query) > 0) {
 </table>
 
 <script>
+    
     $(document).ready(function() {
 
         $("#error").css("display", "none");
         $("#success").css("display", "none");
 
-        $('#myTable').DataTable();
+   
 
 
     })

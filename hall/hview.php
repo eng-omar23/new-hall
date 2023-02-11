@@ -102,7 +102,8 @@ $id=$_GET['id'];
             <td>charge_perhead</td>
      
             <td>hall_desc</td>
-            <td>Action</td>
+            <td>Update</td>
+            <td>delete</td>
        
         </tr>
     </thead>
@@ -129,8 +130,12 @@ $id=$_GET['id'];
                     <td><?php echo $data["capacity"] ?></td>
                     <td><?php echo $data["charge_perhead"] ?></td>
                     <td><?php echo $data["hall_desc"] ?></td>
-                   <td><a href="hedit.php?hid=<?php echo $data["hall_id"] ?>&&id=<?php echo $id ?>" class="btn btn-warning"><i class="fas fa-edit"></i></a>
-                 <a href="hall_del.php?hid=<?php echo $data["hall_id"] ?>&&id=<?php echo $id ?>" class="btn btn-danger"><i class="fas fa-trash"></i></a></td>
+                   <td>
+                    <a href="hedit.php?hid=<?php echo $data["hall_id"] ?>&&id=<?php echo $id ?>" class="btn btn-warning"><i class="fas fa-edit"></i></a>
+                    </td>
+                    <td>
+                   <a href="hall_del.php?hid=<?php echo $data["hall_id"] ?>&&id=<?php echo $id ?>" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                 </td>
 
                 </tr>
         <?php
