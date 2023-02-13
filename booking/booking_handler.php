@@ -19,7 +19,7 @@ $bdate = date('y,m,d');
 if ($bid=="") {
 
 //get latest booking id and increment so that i can use that id for bid insertion in the payment table
-$sql="select max(bid),h.* from booking b join halls h b.hall_id=h.hall_id where h.company_id='$company_id'";
+$sql="select max(b.bid) as bid,h.* from booking b join halls h on b.hall_id=h.hall_id where h.company_id='$company_id'";
 
 $bid =get_id($conn,$sql);
 

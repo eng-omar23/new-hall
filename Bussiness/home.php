@@ -53,7 +53,7 @@ $data=mysqli_fetch_array($query);
                         Register</i>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="Users.php">Users</a>
+                        <a class="dropdown-item" href="../users/users.php?id=<?php echo $data['id']?>">Users</a>
                         <a class="dropdown-item" href="../hall/hview.php?id=<?php echo $data["id"];?>">Hall</a>
                          <a class="dropdown-item" href="../facility/facilityview.php?id=<?php echo $data["id"];?>">facility</a>
                          <a class="dropdown-item" href="../customers/custview.php?id=<?php echo $data["id"];?>">customers</a>
