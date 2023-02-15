@@ -1,18 +1,16 @@
 <?php
-include("conn.php");
-include("../Bussiness/home.php");
-include("header.php");
+include@("../conn.php");
+include@("../Bussiness/home.php");
+
 ?>
 <style>
-    body {
-  margin-top: -9%;
 
-        background-color: white;
-        background: #000;
-        color: white;
-        text-align: center;
-        background-color: white;
-    }
+        body {
+            margin-top: 5%;
+            margin-right: 3%;
+            margin-left: 3%;
+        }
+  
 </style>
 
 <?php
@@ -27,7 +25,7 @@ $row=mysqli_fetch_array($query);
 
 <div class="container justify-center">
     <div class="card shadow">
-        <div class="card-header bg bg-info text-center">Facility Registration</div>
+        <div class="card-header bg bg-info text-center">Hall Registration Update</div>
         <div class="card-body">
            
   <div class="alert alert-danger" id="error"> </div>

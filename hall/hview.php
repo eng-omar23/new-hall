@@ -58,12 +58,10 @@ $id=$_GET['id'];
                 
                 <label class="form-label">Hall Photo</label>
                 <input type="file"name="photo" id="photo" class="form-control">
-                <label class="form-label" for="date">Date</label>
-               
-                <input type="date" id="date" name="mdate" class="form-control">
+            
 
                 <label class="form-label">Hall Description </label>
-      <textarea class="form-control" id='desc' name="desc" id="comment"></textarea>
+      <textarea class="form-control" id='desc' name="desc" id="desc"></textarea>
                
                 <input type="submit" value="Save" class="btn btn-primary btn-sm mt-2 float-right">
                 <a href="hview.php?id=<?php echo $id ?>"class="btn btn-success btn-sm mt-2 mr-4 float-right">View record</a>
@@ -164,7 +162,6 @@ $id=$_GET['id'];
              $("#hall_form").submit(function(e){   
        
           
-
                 e.preventDefault();
 
                 $.ajax({

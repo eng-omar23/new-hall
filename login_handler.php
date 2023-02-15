@@ -13,6 +13,8 @@
       $res=mysqli_fetch_array($query);
       $type=$res['type'];
       $id=$res['company_id'];
+      $_SESSION['email']='email';
+      $_SESSION['password'];
       
       if(mysqli_num_rows($query)>0){
 
@@ -21,7 +23,7 @@
             $_SESSION["$id"];
         }
         else if($type='Admins'){
-            header("location:nav.php");  
+            header("location:admin");  
         }
         else{
             echo "<center><h4 style='color: red;' class='mt-4'>No appropiate credantials found</h4></center>";

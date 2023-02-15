@@ -50,24 +50,25 @@ $id = $_GET['id'];
             
 
                     <label for="username">User Name</label>
-                    <input type="text" class="form-control form-control-sm" id="name" name="name" placeholder="username" >
+                    <input type="text" class="form-control form-control-sm" id="name" name="name" placeholder="Enter Username" >
 
 <label class="form-label">password</label>
-                <input type="text" class="form-control form-control-sm" id="pass" name="pass">
-
+                <input type="password" class="form-control form-control-sm" id="pass" name="pass">
 
                 <label class="form-label">Email</label>
-                <input type="text" name="email" id="email"  class="form-control form-control-sm" placeholder="Enter Numver of attendee">
-                <label class="form-label">Amount Due</label>
-                <input type="text" name="amountdue" id="amountdue" class="form-control form-control-sm">
+                <input type="email" name="email" id="email"  class="form-control form-control-sm" placeholder="Enter Email">
+              
                  
         
                 <label class="form-label">type</label>
-                <input type="text" class="form-control form-control-sm" id="type" name="type"> 
-
+                <select class="form-control form-control-sm" id="type" name="type" >
+                <option value="">Choose User Type</option>     
+                <option value="Admin">Admin</option>     
+                 <option value="user">User</option>
+                </select>
         
                 <label class="form-label">Status</label>
-                <input type="text" class="form-control form-control-sm" id="status" name="status"> 
+                <input type="text" class="form-control form-control-sm" id="status" name="status" placeholder="Enter user Status"> 
              
 
 
@@ -116,12 +117,12 @@ $id = $_GET['id'];
     
      $cid =$_GET['id']; 
      $n=1;
-     $sql="SELECT u.* , c.* from users u join company_reg c on u.company_id = c.id where company_id='$cid'";
+     $sql="SELECT u.* , c.Name from users u join company_reg c on u.company_id = c.id where company_id='$cid'";
      $query=mysqli_query($conn,$sql);
 
     if(mysqli_num_rows($query)>0){
 
-        $sql="SELECT c.Name as Name, u.* from users u join company_reg c on u.company_id = c.id where company_id='$cid'";
+        $sql="SELECT u.*, c.Name from users u join company_reg c on u.company_id = c.id where company_id='$cid'";
    $query=mysqli_query($conn,$sql);
         $query=mysqli_query($conn,$sql);
         while($data=mysqli_fetch_array($query)){
@@ -143,9 +144,9 @@ $id = $_GET['id'];
    
            
         <td>
-        <a  href="usersedit.php?userid=<?php echo $data["id"]?>&&id=<?php echo $cid?>&&id=<?php echo $data['id']?>"class="btn btn-warning"><i class="fas fa-edit"></i></a> ||
+        <a  href="useredit.php?userid=<?php echo $data["id"]?>&&id=<?php echo $cid;?>"class="btn btn-warning"><i class="fas fa-edit"></i></a> ||
         
-        <a  onclick="alert('are you sure ')" href="userdel.php?userid=<?php echo $data["id"]?>&&id=<?php echo $cid;?>"class="btn btn-danger"><i class="fas fa-trash"></i></a>
+        <a   onclick='alert("are you sure")'  href="userdel.php?userid=<?php echo $data["id"]?>&&id=<?php echo $cid;?>"class="btn btn-danger"><i class="fas fa-trash"></i></a>
         </td>
 
     </tr>
@@ -167,11 +168,11 @@ $id = $_GET['id'];
     
     $(document).ready(function() {
 
-        $("#myTable").datatable();
 
         $("#error").css("display", "none");
         $("#success").css("display", "none");
 
+        $("#myTable").datatable();
    
 
 

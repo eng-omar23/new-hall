@@ -9,7 +9,7 @@ $location=$_POST["location"];
 $charge=$_POST['charge_perhead'];
 $photo=$_FILES['photo']['name'];
 $path=$_FILES['photo']['tmp_name'];
-$mdate=$_POST['mdate'];
+$mdate= date ('y,n,d');
 $folder ="../image/".$photo;
 
 
