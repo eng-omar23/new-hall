@@ -114,7 +114,7 @@ include("conn.php");
 
   #dot-1:checked~.category label .one,
   #dot-2:checked~.category label .two,
-  #dot-3:checked~.category label .three {
+   {
     background: #9b59b6;
     border-color: #d9d9d9;
   }
@@ -126,9 +126,11 @@ include("conn.php");
   form .button {
     height: 45px;
     margin: 35px 0
+    
   }
 
   form .button input {
+    
     height: 100%;
     width: 100%;
     border-radius: 5px;
@@ -141,6 +143,7 @@ include("conn.php");
     transition: all 0.3s ease;
     background: linear-gradient(135deg, #71b7e6, #9b59b6);
   }
+  
 
   form .button input:hover {
     /* transform: scale(0.99); */
