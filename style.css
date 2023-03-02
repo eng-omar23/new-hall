@@ -102,9 +102,9 @@ section {
     /* transition: .5s ease; */
     
 }
-/* .sidebar ul li a:hover{
-    background: rgba(255, 255, 255, .1);
-} */
+.sidebar ul li a:hover{
+    background: rgba(58, 10, 233, 0.1);
+}
 
 /* .sidebar ul .list-item.active a{
     background: #327aff;
