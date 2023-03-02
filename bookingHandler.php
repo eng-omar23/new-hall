@@ -14,8 +14,6 @@ $sdate=$_POST['date1'];
 $edate=$_POST['date2'];
 
 if($cid!=""){
-
-
     //get last bookn id and insert to use for inserting payment 
   $sql="select max(bid) from booking where company_id='$company_id'";
     $bid=get_id($conn,$sql);
@@ -70,3 +68,5 @@ if($cid!=""){
     }
 }
 }
+
+
