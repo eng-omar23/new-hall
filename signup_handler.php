@@ -19,6 +19,30 @@ $sql="select * from company_reg where Name='$cname' ";
 
    $data=mysqli_fetch_array($company_id);
    $id=$data['id'];     
+
+
+
+ if($id ==null){
+     $sql ="insert into local_users values(null,'$name','$password','$email','Admin','$status',null)";
+
+     $query = mysqli_query($conn,$sql);
+     if($query){
+         ?>
+        <script>
+        alert("successfully created an account");
+        window.location = "login.php";
+    </script>
+    <?php
+     }
+     else{
+        ?>
+        <script>
+        alert("Failed To create an account");
+        window.location = "login.php";
+    </script>
+    <?php
+     }
+ }
 //check if the users exits
    $check_users=mysqli_query($conn,"select * from users where email='$email'");
    if(mysqli_num_rows($check_users)==0){

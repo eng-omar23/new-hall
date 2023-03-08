@@ -7,5 +7,4 @@
     }
 </style>
 
-<h1 >Welcome TO Home</h1>
-
+<h1 >Welcome TO PHP</h1>

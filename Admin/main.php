@@ -1,3 +1,8 @@
+<?php include("index.php") ?>
+
+<head>
+  <link rel="stylesheet" href="style.css">
+  </head>
 <main>
 			<h1 class="title">Dashboard</h1>
 			<ul class="breadcrumbs">

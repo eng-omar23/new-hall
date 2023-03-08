@@ -31,18 +31,13 @@ color:white;
     </li>
     <li class="nav-item ">
       <a class="nav-link" id='a' href="contact.php">Contact</i></a>
+    </li>   <li class="nav-item ">
+      <a class="nav-link" id='a' href="comRegister.php">Register</i></a>
     </li>
-    <li class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle" id='a' href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-       Register<i class="fa fa-registered"></i>
-      </a>
-      <div class="dropdown-menu"   aria-labelledby="navbarDropdownMenuLink">
-      <a class="dropdown-item"   href="comRegister.php">Business</a>
+
  
-       
-      </div>
-    <li class="nav-item ">
-      <a class="nav-link" id='a' href="login.php">Sign In<i class="fas fa-sign-in-alt"></i></a>
+      
+      <a class="nav-link" id='a' href="login.php">Sign In</a>
     </li>
 
 

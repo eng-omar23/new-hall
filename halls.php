@@ -13,8 +13,8 @@ include("nav.php");
 <div class="container-fluid text-center ">
     <div class="row row-cols-12 rows-md-4 g-3">
 <?php
-$id=$_GET['id'];
-$query=mysqli_query($conn,"select * from halls  where company_id='$id'");
+@$id=$_GET['id'];
+$query=mysqli_query($conn,"select * from halls  where company_id=9");
 if(mysqli_num_rows($query)>0){
 while($data=mysqli_fetch_array($query)){
 ?>
