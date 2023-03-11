@@ -15,15 +15,15 @@ include("nav.php");
   text-align: center;
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
-  border-radius: 6px;
-  background-color: 	darkgrey;
+  border-radius: 85px;
+  background-color: 	#54B4D3;
 }
 .head {
-  -webkit-border-radius: 6px 6px 0px 0px;
+  -webkit-border-radius: 6px 6px 6px 6px;
   -moz-border-radius: 6px 6px 0px 0px;
   border-radius: 6px 6px 0px 0px;
-  background-color: 	darkgrey;
-  color: whitesmoke;
+  background-color: 	rgb(232, 240, 254);
+  color:  black;
  
 
 
@@ -95,7 +95,7 @@ button {
 }
 button:hover,
 .button:hover {
-  background: #19a08c;
+  background: darkgrey;
 }
 label.error {
   font-family: "Source Sans Pro", arial, sans-serif;
@@ -149,13 +149,14 @@ contact form created for treehouse competition.
 
 
 
-<form id="contact" action="contact_process.php">
+<form id="contact" action="contact_process.php" method="Post">
   <div class="container mt-5">
     <div class="head">
-      <h2>Hall Booking Platform</h2>
+      
     </div>
-    <input type="text" name="name" placeholder="Name" /><br />
-    <input  type="email" name="email" placeholder="Email" /><br />
+    <input type="text" name="name" placeholder="Name" require /><br />
+    <input  type="email" name="email" placeholder="Email" require /><br />
+    <input  type="phone" name="phone" placeholder="phone" /><br />
     <textarea type="text" name="message" placeholder="Message"></textarea><br />
     <div class="message">Message Sent</div>
     <button id="submit" type="submit">
