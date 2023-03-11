@@ -13,8 +13,10 @@ include("nav.php");
 <div class="container-fluid text-center ">
     <div class="row row-cols-12 rows-md-4 g-3">
 <?php
-@$id=$_GET['id'];
-$query=mysqli_query($conn,"select * from halls");
+
+if(isset($_POST['input'])){
+    $key = $_POST['input'];
+$query=mysqli_query($conn,"select * from halls  where hall_type like '{$key}%'");
 if(mysqli_num_rows($query)>0){
 while($data=mysqli_fetch_array($query)){
 ?>
@@ -31,10 +33,15 @@ while($data=mysqli_fetch_array($query)){
   <?php
 }
 }
+else if(empty($key)){
+    header("location : search.php");
+}
 else{
-  echo "No data Data Available";
+  echo "<h7 class='text-danger text-center mt-3'> No Data Found</h5>";
 }
 ?>
 </div>
 
 </div>
+<?php
+}
