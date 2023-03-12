@@ -152,8 +152,16 @@ contact form created for treehouse competition.
 <form id="contact" action="contact_process.php" method="Post">
   <div class="container mt-5">
     <div class="head">
+      <div class="container mt-5">
+
+      <div id="sucesss" class="alert-sucess"></div>
+      <div id="error" class="alert-danger"></div>
+      
+      </div>
+
       
     </div>
+  <input type="hidden" id="contact_id" name="contact_id" >
     <input type="text" name="name" placeholder="Name" require /><br />
     <input  type="email" name="email" placeholder="Email" require /><br />
     <input  type="phone" name="phone" placeholder="phone" /><br />
@@ -168,31 +176,72 @@ contact form created for treehouse competition.
 <script>
 
 
+$(document).ready(function(){
+                   
 
-$(function () {
-  // validate
-  $("#contact").validate({
-    // Set the validation rules
-    rules: {
-      name: "required",
-      email: {
-        required: true,
-        email: true
-      },
-      message: "required"
-    },
-    // Specify the validation error messages
-    messages: {
-      name: "Please enter your name",
-      email: "Please enter a valid email address",
-      message: "Please enter a message"
-    },
-    // submit handler
-    submitHandler: function (form) {
-      //form.submit();
-      $(".message").show();
-      $(".message").fadeOut(4500);
-    }
-  });
-});
+                   $("#error").css("display","none");
+                   $("#success").css("display","none");
+             
+               })
+            $("#contact").submit(function(e){   
+      
+         
+
+               e.preventDefault();
+
+               $.ajax({
+                   url:"contact_process.php",
+                   data: new FormData($(this)[0]),
+                   cache: false,
+                   contentType: false,
+                   processData: false,
+                   method: 'POST',
+                   type: 'POST',
+                   success: function(resp) {
+               alert(resp)
+
+               var res = jQuery.parseJSON(resp);
+               if (res.status == 200) {
+                   $("#success").css("display", "block");
+                   $("#success").text(res.message);
+               } else if (res.status == 404) {
+                   $("#success").css("display", "none");
+                   $("#error").css("display", "block");
+                   $("#error").text(res.message);
+               }
+           
+                   }
+               });
+
+
+            });
+
+// $(function () {
+//   // validate
+//   $("#contact").validate({
+//     // Set the validation rules
+//     rules: {
+//       name: "required",
+//       email: {
+//         required: true,
+//         email: true
+//       },
+//       message: "required",
+//       phone : "require"
+//     },
+//     // Specify the validation error messages
+//     messages: {
+//       name: "Please enter your name",
+//       email: "Please enter a valid email address",
+//       message: "Please enter a message",
+//       phone : "Please enter your phone Number"
+//     },
+//     // submit handler
+//     submitHandler: function (form) {
+//       //form.submit();
+//       $(".message").show();
+//       $(".message").fadeOut(4500);
+//     }
+//   });
+// });
 </script>
