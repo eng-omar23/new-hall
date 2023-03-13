@@ -30,7 +30,7 @@
  if(mysqli_num_rows($query) >0){
      
          if($type='Admins'){
-            header("location:admin");  
+            header("location:application/views/dashboard.php");  
         }
         else{
             echo "<center><h4 style='color: red;' class='mt-4'>No appropiate credantials found</h4></center>";
