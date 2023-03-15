@@ -82,6 +82,7 @@ $row=mysqli_fetch_assoc($q);
     <div class="container">
     <div class="row">
             <div class="col-md-4 col-xl-3">
+                <input type="hidden" name="id" id="id" value="<?php echo $id?>">
                 <div class="card bg-c-blue order-card" id="cardOne">
                     <div class="card-block">
                         <h6 class="m-b-20">Number of Bookings</h6>
@@ -175,8 +176,10 @@ $row=mysqli_fetch_assoc($q);
 <script>
     document.getElementById("cardOne").onclick = () => {
   console.log('clicked')
+  //var id = document.getElementById('id').value()
   //document.getElementById("cardOne").textContent = "click me (clicked)"
   // if you want to redirect ( remove the "//" in the next line ):
-  window.location.href = "BookingReport"
+  window.location.href = "BookingReport.php"
 }
 </script>
+
