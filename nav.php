@@ -27,13 +27,11 @@ color:white;
 <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
   <ul class="navbar-nav ">
     <li class="nav-item ">
-      <a class="nav-link" id='a' href="profile.php">Home </a>
+      <a class="nav-link" id='a' href="search.php">Home </a>
     </li>
     <li class="nav-item ">
       <a class="nav-link" id='a' href="contact.php">Contact</i></a>
-    </li>   <li class="nav-item ">
-      <a class="nav-link" id='a' href="comRegister.php">Register</i></a>
-    </li>
+</li>
 
  
       

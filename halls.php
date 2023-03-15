@@ -24,8 +24,8 @@ while($data=mysqli_fetch_array($query)){
   <h7 class="card-title">Location:<?php echo $data['location']?></h5><br>
     <h7 class="card-title">Price:<?php echo $data['charge_perhead']?>$ per person</h5>
     <p class="card-text">Capacity:<?php echo $data['capacity']?> Persons</p>
-    <p class="card-text">More Info:<?php echo $data['hall_desc']?> .</p>
-    <a href="booking.php?id=<?php echo $data['hall_id']?>" class="btn btn-primary">Book Now</a>
+   
+    <a href="booking.php?id=<?php echo $data['hall_id']?>" class="btn btn-primary">View Details</a>
   </div>
 </div>
   <?php

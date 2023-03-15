@@ -10,8 +10,7 @@ include('nav.php');
          <input  type="text" id="livesearch" name="livesearch" class="form-control form-control-sm" width="50%" placeholder="Search for Hall " autocomplete="off" >
        </div>
        
- 
- 
+
  </div>
  <div id="searchResult">
   
