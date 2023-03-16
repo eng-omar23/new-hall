@@ -36,22 +36,22 @@ color:white;
 <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
   <ul class="navbar-nav ">
     <li class="nav-item ">
-      <a class="nav-link" id='a' href="dashboard.php"> <i class="fa fa-Dashboard"></i> Dashboard</a>
+      <a class="nav-link btn-primary" id='a' href="cus_dashboard.php"> <i class="fa fa-Dashboard"></i> Dashboard</a>
       <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id='a' href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle btn-primary" id='a' href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fa-solid fa-action">
                         Actions</i>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item" href="cancell_booking">cancell Booking</a>
-                        <a class="dropdown-item" href="feedback">feedback</a>
+                        <a class="dropdown-item" href="rating.php">Review</a>
                         <a class="dropdown-item" href="feedback">Postbone Event</a>
    
                         </div>
                     </li> 
 
  
-                    <a class="nav-link" id='a' href="search.php">Notification<i class="fa-solid fa-bell"></i></a>
+                    <a class="nav-link btn-primary"  id='a' href="search.php">Notification<i class="fa-solid fa-bell"></i></a>
       <a class="nav-link" id='a' href="search.php">logout</a>
     </li>
 
