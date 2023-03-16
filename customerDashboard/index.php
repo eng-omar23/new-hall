@@ -43,9 +43,9 @@ color:white;
                         Actions</i>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="cancell_booking">cancell Booking</a>
+                        <a class="dropdown-item" onclick="getModal()">cancell Booking</a>
                         <a class="dropdown-item" href="rating.php">Review</a>
-                        <a class="dropdown-item" href="feedback">Postbone Event</a>
+                        <a class="dropdown-item" onclick="get_postponeModal()">Postbone Event</a>
    
                         </div>
                     </li> 
@@ -60,6 +60,63 @@ color:white;
 
 </nav>
 
-
+<div id="cancel_modal" class="modal" tabindex="-1" role="dialog">
+  	<div class="modal-dialog" role="document">
+    	<div class="modal-content">
+	      	<div class="modal-header">
+	        	<h5 class="modal-title">Cancel Booking</h5>
+	        	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          		<span aria-hidden="true">&times;</span>
+	        	</button>
+	      	</div>
+	      	<div class="modal-body">
+	
+	        	<div class="form-group">
+	        		<input type="text" name="user_name" id="user_name" class="form-control" placeholder="Enter Your Name" />
+	        	</div>
+	        	<div class="form-group">
+	        		<textarea name="user_review" id="user_review" class="form-control" placeholder="Type Review Here"></textarea>
+	        	</div>
+	        	<div class="form-group text-center mt-4">
+	        		<button type="submit" class="btn btn-primary" id="save_review">Submit</button>
+	        	</div>
+	      	</div>
+    	</div>
+  	</div>
+</div>
+<div id="postpone_modal" class="modal" tabindex="-1" role="dialog">
+  	<div class="modal-dialog" role="document">
+    	<div class="modal-content">
+	      	<div class="modal-header">
+	        	<h5 class="modal-title">Postpone Booking</h5>
+	        	<button type="button" class="close" data-dismiss="postpone_modal" aria-label="Close">
+	          		<span aria-hidden="true">&times;</span>
+	        	</button>
+	      	</div>
+	      	<div class="modal-body">
+	
+	        	<div class="form-group">
+	        		<input type="text" name="user_name" id="user_name" class="form-control" placeholder="Enter Your Name" />
+	        	</div>
+	        	<div class="form-group">
+	        		<textarea name="user_review" id="user_review" class="form-control" placeholder="Type Review Here"></textarea>
+	        	</div>
+	        	<div class="form-group text-center mt-4">
+	        		<button type="submit" class="btn btn-primary" id="save_review">Submit</button>
+	        	</div>
+	      	</div>
+    	</div>
+  	</div>
+</div>
 <script src="jquery.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+
+    <script>
+        function getModal(){
+            $("#cancel_modal").show();
+        }
+        function get_postponeModal(){
+            $("#postpone_modal").show();
+        }
+    </script>
