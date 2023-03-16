@@ -3,6 +3,7 @@ include("nav.php");
 ?>
 <style>
     body {
+     
   padding-top: 25px;
   background-color: white;
   margin-left: 10px;
@@ -19,6 +20,7 @@ include("nav.php");
   background-color: 	#54B4D3;
 }
 .head {
+  margin-top: 5%;
   -webkit-border-radius: 6px 6px 6px 6px;
   -moz-border-radius: 6px 6px 0px 0px;
   border-radius: 6px 6px 0px 0px;

@@ -2,17 +2,14 @@
 include('nav.php');
 ?>
 
-
 <section class="header">
 <div class="container">  
  
        <div class="container mt-3 text-alight-center">
          <input  type="text" id="livesearch" name="livesearch" class="form-control form-control-sm" width="50%" placeholder="Search for Hall " autocomplete="off" >
+         <div id="searchResult">
        </div>
-       
-
  </div>
- <div id="searchResult">
   
  </div>
  <?php
@@ -23,6 +20,7 @@ include('nav.php');
 
 
 ?>
+</section>
 
 
 <script type="text/javascript">
