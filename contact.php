@@ -3,6 +3,7 @@ include("nav.php");
 ?>
 <style>
     body {
+     
   padding-top: 25px;
   background-color: white;
   margin-left: 10px;
@@ -15,15 +16,16 @@ include("nav.php");
   text-align: center;
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
-  border-radius: 6px;
-  background-color: 	darkgrey;
+  border-radius: 85px;
+  background-color: 	#54B4D3;
 }
 .head {
-  -webkit-border-radius: 6px 6px 0px 0px;
+  margin-top: 5%;
+  -webkit-border-radius: 6px 6px 6px 6px;
   -moz-border-radius: 6px 6px 0px 0px;
   border-radius: 6px 6px 0px 0px;
-  background-color: 	darkgrey;
-  color: whitesmoke;
+  background-color: 	rgb(232, 240, 254);
+  color:  black;
  
 
 
@@ -95,7 +97,7 @@ button {
 }
 button:hover,
 .button:hover {
-  background: #19a08c;
+  background: darkgrey;
 }
 label.error {
   font-family: "Source Sans Pro", arial, sans-serif;
@@ -149,13 +151,22 @@ contact form created for treehouse competition.
 
 
 
-<form id="contact" action="contact_process.php">
+<form id="contact" action="contact_process.php" method="Post">
   <div class="container mt-5">
     <div class="head">
-      <h2>Hall Booking Platform</h2>
+      <div class="container mt-5">
+
+      <div id="sucesss" class="alert-sucess"></div>
+      <div id="error" class="alert-danger"></div>
+      
+      </div>
+
+      
     </div>
-    <input type="text" name="name" placeholder="Name" /><br />
-    <input  type="email" name="email" placeholder="Email" /><br />
+  <input type="hidden" id="contact_id" name="contact_id" >
+    <input type="text" name="name" placeholder="Name" require /><br />
+    <input  type="email" name="email" placeholder="Email" require /><br />
+    <input  type="phone" name="phone" placeholder="phone" /><br />
     <textarea type="text" name="message" placeholder="Message"></textarea><br />
     <div class="message">Message Sent</div>
     <button id="submit" type="submit">
@@ -167,31 +178,72 @@ contact form created for treehouse competition.
 <script>
 
 
+$(document).ready(function(){
+                   
 
-$(function () {
-  // validate
-  $("#contact").validate({
-    // Set the validation rules
-    rules: {
-      name: "required",
-      email: {
-        required: true,
-        email: true
-      },
-      message: "required"
-    },
-    // Specify the validation error messages
-    messages: {
-      name: "Please enter your name",
-      email: "Please enter a valid email address",
-      message: "Please enter a message"
-    },
-    // submit handler
-    submitHandler: function (form) {
-      //form.submit();
-      $(".message").show();
-      $(".message").fadeOut(4500);
-    }
-  });
-});
+                   $("#error").css("display","none");
+                   $("#success").css("display","none");
+             
+               })
+            $("#contact").submit(function(e){   
+      
+         
+
+               e.preventDefault();
+
+               $.ajax({
+                   url:"contact_process.php",
+                   data: new FormData($(this)[0]),
+                   cache: false,
+                   contentType: false,
+                   processData: false,
+                   method: 'POST',
+                   type: 'POST',
+                   success: function(resp) {
+               alert(resp)
+
+               var res = jQuery.parseJSON(resp);
+               if (res.status == 200) {
+                   $("#success").css("display", "block");
+                   $("#success").text(res.message);
+               } else if (res.status == 404) {
+                   $("#success").css("display", "none");
+                   $("#error").css("display", "block");
+                   $("#error").text(res.message);
+               }
+           
+                   }
+               });
+
+
+            });
+
+// $(function () {
+//   // validate
+//   $("#contact").validate({
+//     // Set the validation rules
+//     rules: {
+//       name: "required",
+//       email: {
+//         required: true,
+//         email: true
+//       },
+//       message: "required",
+//       phone : "require"
+//     },
+//     // Specify the validation error messages
+//     messages: {
+//       name: "Please enter your name",
+//       email: "Please enter a valid email address",
+//       message: "Please enter a message",
+//       phone : "Please enter your phone Number"
+//     },
+//     // submit handler
+//     submitHandler: function (form) {
+//       //form.submit();
+//       $(".message").show();
+//       $(".message").fadeOut(4500);
+//     }
+//   });
+// });
 </script>

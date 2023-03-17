@@ -82,7 +82,8 @@ $row=mysqli_fetch_assoc($q);
     <div class="container">
     <div class="row">
             <div class="col-md-4 col-xl-3">
-                <div class="card bg-c-blue order-card">
+                <input type="hidden" name="id" id="id" value="<?php echo $id?>">
+                <div class="card bg-c-blue order-card" id="cardOne">
                     <div class="card-block">
                         <h6 class="m-b-20">Number of Bookings</h6>
                         <h2 class="text-right"><i class="fa-sharp fa-solid fa-book f-left"></i><span><?php echo $data['number_of_booking']?></span></h2>
@@ -161,47 +162,7 @@ $row=mysqli_fetch_assoc($q);
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-4 col-xl-3">
-                <div class="card bg-c-blue order-card">
-                    <div class="card-block">
-                        <h6 class="m-b-20">Orders Received</h6>
-                        <h2 class="text-right"><i class="fa fa-cart-plus f-left"></i><span>486</span></h2>
-                        <p class="m-b-0">Completed Orders<span class="f-right">351</span></p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-4 col-xl-3">
-                <div class="card bg-c-green order-card">
-                    <div class="card-block">
-                        <h6 class="m-b-20">Orders Received</h6>
-                        <h2 class="text-right"><i class="fa fa-rocket f-left"></i><span>486</span></h2>
-                        <p class="m-b-0">Completed Orders<span class="f-right">351</span></p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-4 col-xl-3">
-                <div class="card bg-c-yellow order-card">
-                    <div class="card-block">
-                        <h6 class="m-b-20">Orders Received</h6>
-                        <h2 class="text-right"><i class="fa fa-refresh f-left"></i><span>486</span></h2>
-                        <p class="m-b-0">Completed Orders<span class="f-right">351</span></p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-4 col-xl-3">
-                <div class="card bg-c-pink order-card">
-                    <div class="card-block">
-                        <h6 class="m-b-20">Orders Received</h6>
-                        <h2 class="text-right"><i class="fa fa-credit-card f-left"></i><span>486</span></h2>
-                        <p class="m-b-0">Completed Orders<span class="f-right">351</span></p>
-                    </div>
-                </div>
-            </div>
-        </div>
+       
     </div>
     
     
@@ -211,3 +172,14 @@ $row=mysqli_fetch_assoc($q);
       
 </body>
 </html>
+
+<script>
+    document.getElementById("cardOne").onclick = () => {
+  console.log('clicked')
+  //var id = document.getElementById('id').value()
+  //document.getElementById("cardOne").textContent = "click me (clicked)"
+  // if you want to redirect ( remove the "//" in the next line ):
+  window.location.href = "BookingReport.php"
+}
+</script>
+

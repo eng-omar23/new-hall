@@ -45,7 +45,7 @@ $data=mysqli_fetch_array($query);
         <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
             <ul class="navbar-nav ">
                 <li class="nav-item ">
-                    <a class="nav-link" id='a' href="../dashboard/dashboard.php?id=<?php echo $data["id"];?>">Home</a>
+                    <a class="nav-link" id='a' href="../dashboard/dashboard.php?id=<?php echo $data["id"];?>">Dashboard</a>
                 </li>
              
                 <li class="nav-item dropdown">
