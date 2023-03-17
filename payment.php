@@ -53,6 +53,7 @@
                         <input type="email" placeholder="example@email.com" id="email" required>
                     </div>
                     <button>PAY NOW</button>
+                    <!-- <button>PAY NOW</button> -->
                 </form>
             </div>
         </div>

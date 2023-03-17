@@ -148,6 +148,7 @@ button{
 }
 button:hover{
 	background-color: #444;
+	/* background-color: #444; */
 	color: white;
 	cursor: pointer;
 }
