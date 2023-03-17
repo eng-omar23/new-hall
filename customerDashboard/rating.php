@@ -94,7 +94,7 @@ include('index.php');
     	<div class="modal-content">
 	      	<div class="modal-header">
 	        	<h5 class="modal-title">Submit Review</h5>
-	        	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	        	<button type="button" class="close" onclick="close()" aria-label="Close">
 	          		<span aria-hidden="true">&times;</span>
 	        	</button>
 	      	</div>
@@ -129,6 +129,14 @@ $('#add_review').click(function(){
     $('#review_modal').modal('show');
 
 });
+
+ function close(){
+    $('#review_modal').modal('hide');
+
+ }
+
+
+
 
 $(document).on('mouseenter', '.submit_star', function(){
 

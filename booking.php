@@ -1,4 +1,6 @@
-
+<?php
+include('nav.php')
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -110,7 +112,7 @@
 
     .container {
         display: flex;
-        align-item: center;
+
         justify-content: center;
         position: absolute;
         top: 45%;
@@ -125,30 +127,59 @@
 </head>
 
 <body>
-    <div class="container">
+   
+    <div class="container mt-5">
         <div class="card">
             <div class="imag">
-                <img src="image/h6.jpg" height=450%; width=450; alt="">
-            </div>
+                <img src="image//save.jpg" height=900%; width=500; alt="">
+</div>
+  <div class="card-body">
+  <h7 class="card-title"> Location : km5</h5><br>
+    <h7 class="card-title">Price:15$ per person</h5>
+    <p class="card-text">Capacity: 6000</p>
+    <p class="card-text">we welcome you with open hands</p>
+  </div>
+           
 
         </div>
 
     </div>
-
-    <div>
+ <center>
+ <h2 class="mt-3 text-align-center fs-4">Hall Details</h2>
+ </center>
+   
+  
+    
+<section class="conatiner">
+    
+<div>
         <label>
             <input type="checkbox">
             <span class="input-check"></span>
-            Aircondition
+            Aircondition 12$
         </label>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>
         <label>
             <input type="checkbox">
             <span class="input-check"></span>
-            Aircondition
+            Aircondition 12$
+           
+    
+        </label> <br>
+        <label>
+            <input type="checkbox">
+            <span class="input-check"></span>
+            Aircondition 12$
+        </label> <br>
+        <label>
+            <input type="checkbox">
+            <span class="input-check"></span>
+            Aircondition 12$
         </label>
     </div>
+</section>
+    
 <!-- hnh -->
 
 

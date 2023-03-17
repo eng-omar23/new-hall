@@ -28,7 +28,7 @@ color:white;
 <nav class="navbar navbar-expand-sm navbar-light bg-primary fixed-top">
 <div class="container-fluid ">
 
-<a class="navbar-brand"  id='a' href="#">Hall Booking Platform</a>
+<a class="navbar-brand"  id='a' href="#">Omar Mohamud Omar</a>
 <img src="../image/avatar.jpg" width="50" alt="Bootstrappin'">
 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
   <span class="navbar-toggler-icon"></span>
