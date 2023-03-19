@@ -2,6 +2,13 @@
 
 $("#AddNew").on("click", function(){
     $("#UsersModal").modal("show");
+   
+})
+
+$(document).ready(function(){
+                   
+
+    alert('hellow wolrd')
 })
 
 $("#UsersForm").on("submit", function(e){

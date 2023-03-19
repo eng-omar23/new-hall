@@ -133,6 +133,7 @@ $id=$_GET['id'];
                     </td>
                     <td>
                    <a href="hall_del.php?hid=<?php echo $data["hall_id"] ?>&&id=<?php echo $id ?>" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+
                  </td>
 
                 </tr>
@@ -143,7 +144,6 @@ $id=$_GET['id'];
             echo "no data available";
         }
         ?>
-
 
     </tbody>
 </table>

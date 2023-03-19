@@ -1,6 +1,7 @@
 
     <?php include 'header.php'; ?>
     <?php include 'sidebar.php'; ?>
+    <?php include '../config/conn.php'?>
 
     <!-- ============================================================== -->
     <!-- Start right Content here -->
@@ -54,7 +55,16 @@
                                             <tr>
                                                 <th style="width: 20px;" class="align-middle">
                                                     <!-- <div class="form-check font-size-16">
-                                                      <input class="form-check-input" type="checkbox" id="checkAll">
+                                                      <in <?php
+
+                                                    
+
+       
+
+ 
+                
+
+        ?>put class="form-check-input" type="checkbox" id="checkAll">
                                                       <label class="form-check-label" for="checkAll"></label>
                                                     </div> -->
                                                 </th>
@@ -69,6 +79,38 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            <?php
+                                        $sql = "SELECT * from users ";
+        $query = mysqli_query($conn, $sql);
+        if (mysqli_num_rows($query) > 0) {
+            $sql = "select * from users";
+            $query = mysqli_query($conn, $sql);
+            while ($data = mysqli_fetch_array($query)) {
+                ?>
+               ?>
+                <tr>
+                    <td><?php echo $n=1 ?></td>
+                    <td><?php echo $data["company_id"] ?></td>
+                    <td><?php echo $data["username"] ?></td>
+                    <td><?php echo $data["password"] ?></td>
+                    <td><?php echo $data["email"] ?></td>
+                    <td><?php echo $data["type"] ?></td>
+                    <td><?php echo "yes yesy" ?></td>
+                   <td>
+                    <a href="hedit.php?hid=<?php echo $data["id"] ?>&&id=<?php echo $id ?>" class="btn btn-warning"><i class="fas fa-edit"></i></a>
+                    </td>
+                    <td>
+                   <a href="hall_del.php?hid=<?php echo $data["id"] ?>&&id=<?php echo $id ?>" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                 </td>
+
+                </tr>
+        <?php
+                $n++;
+            }
+        } else {
+            echo "no data available";
+        }
+        ?>
 
                                         </tbody>
                                     </table>
@@ -104,7 +146,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                      <h5 class="modal-title">Users</h5>
+                      <h5 class="modal-title">Users</h5>  
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">

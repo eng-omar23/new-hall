@@ -176,7 +176,6 @@ CREATE TABLE `payment` (
 --
 -- Table structure for table `users`
 --
-
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `company_id` int(11) NOT NULL,
