@@ -1,4 +1,7 @@
 <?php
+
+use function PHPSTORM_META\type;
+
  session_start();	
   include("conn.php"); 
   $email=$_POST['email'];
@@ -25,13 +28,22 @@
 
       $query = mysqli_query($conn,"select * from local_users where email='$email' and password='$password'");
       $res=mysqli_fetch_array($query);
-      $type=$res['type'];
-
+    
+           $_SESSION['username']=$res['username'];
+           $_SESSION['id']=$res['user_id'];
+           $type=$res['type'];
+           
  if(mysqli_num_rows($query) >0){
+
+
+     if($type='customer' && $type!="Admin" ){
+        header("location:customerDashboard/index.php");  
+    }
      
-         if($type='Admins'){
+         else if($type='Admins' && $type!="customer"){
             header("location:admin/application/views/dashboard.php");  
         }
+     
         else{
             echo "<center><h4 style='color: red;' class='mt-4'>No appropiate credantials found</h4></center>";
             include("login.php");
@@ -50,7 +62,3 @@
 
 
     }
-  
-?>
-
-
