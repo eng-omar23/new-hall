@@ -12,7 +12,7 @@ include("../Bussiness/home.php");
     }
 </style>
 <?php
-$id=$_GET['id'];
+$id = $_SESSION['company_id'];
 
 
 ?>
@@ -64,7 +64,7 @@ $id=$_GET['id'];
       <textarea class="form-control" id='desc' name="desc" id="desc"></textarea>
                
                 <input type="submit" value="Save" class="btn btn-primary btn-sm mt-2 float-right">
-                <a href="hview.php?id=<?php echo $id ?>"class="btn btn-success btn-sm mt-2 mr-4 float-right">View record</a>
+                <a href="hview.php>"class="btn btn-success btn-sm mt-2 mr-4 float-right">View record</a>
 
 </form>
 </div>
@@ -110,7 +110,7 @@ $id=$_GET['id'];
 
         <?php
 
-        $id = $_GET['id'];
+        $id =$_SESSION['company_id'];
         $n = 1;
         $sql = "SELECT c.*,h.* FROM halls h join company_reg c on h.Company_id=c.id where company_id='$id'";
         $query = mysqli_query($conn, $sql);
@@ -129,10 +129,10 @@ $id=$_GET['id'];
                     <td><?php echo $data["charge_perhead"] ?></td>
                     <td><?php echo $data["hall_desc"] ?></td>
                    <td>
-                    <a href="hedit.php?hid=<?php echo $data["hall_id"] ?>&&id=<?php echo $id ?>" class="btn btn-warning"><i class="fas fa-edit"></i></a>
+                    <a href="hedit.php?hid=<?php echo $data["hall_id"] ?>" class="btn btn-warning"><i class="fas fa-edit"></i></a>
                     </td>
                     <td>
-                   <a href="hall_del.php?hid=<?php echo $data["hall_id"] ?>&&id=<?php echo $id ?>" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                   <a href="hall_del.php?hid=<?php echo $data["hall_id"] ?>" class="btn btn-danger"><i class="fas fa-trash"></i></a>
 
                  </td>
 

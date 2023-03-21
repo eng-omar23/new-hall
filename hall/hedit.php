@@ -16,7 +16,7 @@ include@("../Bussiness/home.php");
 <?php
 
 $id = $_GET['hid'];
-$cid= $_GET['id'];
+$cid =$_SESSION['company_id'];
 $sql = "SELECT c.*,h.* FROM halls h join company_reg c on h.Company_id=c.id where hall_id='$id' and company_id='$cid'";
 $query=mysqli_query($conn,$sql);
 $row=mysqli_fetch_array($query);
@@ -63,7 +63,7 @@ $row=mysqli_fetch_array($query);
     </textarea>
                
                 <input type="submit" value="UPDATE" class="btn btn-primary btn-sm mt-2 float-right">
-                <a href="hview.php?id=<?php echo $cid ?>"class="btn btn-success btn-sm mt-2 mr-4 float-right">View record</a>
+                <a href="hview.php"class="btn btn-success btn-sm mt-2 mr-4 float-right">View record</a>
 
 </form>
         </div>

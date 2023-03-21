@@ -14,7 +14,7 @@ include("../Bussiness/home.php");
 <?php
 
 $custid = $_GET['cid'];
-$cid= $_GET['id'];
+$cid= $_SESSION['company_id'];
 $sql="Select * from customers where Company_id ='$cid' and custid='$custid'";
 $query=mysqli_query($conn,$sql);
 $row=mysqli_fetch_array($query);
@@ -46,7 +46,7 @@ $row=mysqli_fetch_array($query);
 
 
             <input type="submit" value="Update" class="btn btn-primary btn-sm mt-2 float-right">
-            <a href="custview.php?id=<?php echo $id ?>" class="btn btn-success btn-sm mt-2 mr-4 float-right">View record</a>
+            <a href="custview.php" class="btn btn-success btn-sm mt-2 mr-4 float-right">View record</a>
 
         </form>
 

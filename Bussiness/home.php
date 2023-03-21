@@ -56,9 +56,9 @@ $data=mysqli_fetch_array($query);
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item" href="../users/users.php?>">Users</a>
-                        <a class="dropdown-item" href="../hall/hview.php?id=<?php echo $data["id"];?>">Hall</a>
-                         <a class="dropdown-item" href="../facility/facilityview.php?id=<?php echo $data["id"];?>">facility</a>
-                         <a class="dropdown-item" href="../customers/custview.php?id=<?php echo $data["id"];?>">customers</a>
+                        <a class="dropdown-item" href="../hall/hview.php?">Hall</a>
+                         <a class="dropdown-item" href="../facility/facilityview.php?>">facility</a>
+                         <a class="dropdown-item" href="../customers/custview.php">customers</a>
                     </div>
                     <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id='a' href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

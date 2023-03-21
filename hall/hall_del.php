@@ -10,13 +10,13 @@ $query=mysqli_query($conn," delete from halls where hall_id='$hallid'");
 if($query){
 
     
-header("location:hview.php?id=$id");
+header("location:hview.php");
 }
 else{
-    ?>
  
-    <a href="hview.php??id=$id"></a>
     
-    <?php
+ header("location:hview.php");
+    
 }
+
 }

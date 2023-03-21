@@ -10,12 +10,12 @@ $query=mysqli_query($conn," delete from facility where facility_id='$facid'");
 if($query){
 
     
-header("location:facilityview.php?id=$id");
+header("location:facilityview.php");
 }
 else{
     ?>
  
-    <a href="facilityview.php?id=<?php echo $id?>"></a>
+    <a href="facilityview.php"></a>
     
     <?php
 }

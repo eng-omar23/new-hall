@@ -12,7 +12,7 @@ include("../Bussiness/home.php");
     }
 </style>
 <?php
-$id=$_GET['id'];
+$id=$_SESSION['company_id'];
 
 
 ?>
@@ -54,7 +54,7 @@ $id=$_GET['id'];
             
                
                 <input type="submit" value="Save" class="btn btn-primary btn-sm mt-2 float-right">
-                <a href="custview.php?id=<?php echo $id ?>"class="btn btn-success btn-sm mt-2 mr-4 float-right">View record</a>
+                <a href="custview.php?"class="btn btn-success btn-sm mt-2 mr-4 float-right">View record</a>
 
 </form>
 </div>
@@ -95,7 +95,7 @@ $id=$_GET['id'];
 
         <?php
 
-        $id = $_GET['id'];
+        $id =$_SESSION['company_id'];
         $n = 1;
         $sql = "SELECT * FROM customers";
         $query = mysqli_query($conn, $sql);
@@ -110,9 +110,9 @@ $id=$_GET['id'];
                     <td><?php echo $data["firstname"] ?></td>
                     <td><?php echo $data["phone"] ?></td>
                     <td><?php echo $data["email"] ?></td>
-                   <td><a href="custedit.php?cid=<?php echo $data["custid"] ?>&&id=<?php echo $id ?>" class="btn btn-warning"> <i class="fa fa-edit"></i>
+                   <td><a href="custedit.php?cid=<?php echo $data["custid"] ?>" class="btn btn-warning"> <i class="fa fa-edit"></i>
                    </a></td>
-                   <td> <a href="custdel.php?cid=<?php echo $data["custid"] ?>&&id=<?php echo $id ?>" class="btn btn-danger"><i class="fa fa-trash"></i></a></td>
+                   <td> <a href="custdel.php?cid=<?php echo $data["custid"] ?>" class="btn btn-danger"><i class="fa fa-trash"></i></a></td>
 
                 </tr>
         <?php

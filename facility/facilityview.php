@@ -17,10 +17,11 @@ include("../Bussiness/home.php");
 
 <?php
 
-$id = $_GET['id'];
+$id = $_SESSION['company_id'];
 $sql="select * from company_reg where id='$id' ";
 $query=mysqli_query($conn,$sql);
 $data=mysqli_fetch_array($query);
+
 
 
 
@@ -80,7 +81,7 @@ $data=mysqli_fetch_array($query);
 
 
                 <input type="submit" value="Save" class="btn btn-primary btn-sm mt-2 float-right">
-                <a href="facilityview.php?id=<?php echo $id ?>"class="btn btn-success btn-sm mt-2 mr-4 float-right">View record</a>
+                <a href="facilityview.php"class="btn btn-success btn-sm mt-2 mr-4 float-right">View record</a>
                
 
             </form>
@@ -118,7 +119,8 @@ $data=mysqli_fetch_array($query);
    
     <?php
     
-     $id =$_GET['id']; 
+     $id =$_SESSION['company_id'];
+ 
      $n=1;
    
     $sql="Select f.*,h.* from facility f join halls h on f.hall_id=h.hall_id where company_id='$id'";
@@ -139,8 +141,8 @@ $data=mysqli_fetch_array($query);
        
               
         <td>
-        <a  href="fedit.php?fid=<?php echo $data["facility_id"]?>&&id=<?php echo $id?>"class="btn btn-warning"><i class="fas fa-edit"></i></a> 
-        <a href="facilityDel.php?fid=<?php echo $data["facility_id"]?>&&id=<?php echo $id?>"class="btn btn-danger"><i class="fas fa-trash"></i></a>
+        <a  href="fedit.php?fid=<?php echo $data["facility_id"]?>>"class="btn btn-warning"><i class="fas fa-edit"></i></a> 
+        <a href="facilityDel.php?fid=<?php echo $data["facility_id"]?>>"class="btn btn-danger"><i class="fas fa-trash"></i></a>
         </td>
 
     </tr>

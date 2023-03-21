@@ -10,13 +10,9 @@ $query=mysqli_query($conn," delete from customers where custid='$cid'");
 if($query){
 
     
-header("location:custview.php?id=$id");
+header("location:custview.php");
 }
 else{
-    ?>
- 
-    <a href="facilityview.php?id=<?php echo $id?>"></a>
-    
-    <?php
+    header("location:custview.php");
 }
 }
