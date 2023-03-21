@@ -13,11 +13,12 @@ use function PHPSTORM_META\type;
       $query = mysqli_query($conn,"select * from users where email='$email' and password='$password'");
       $res=mysqli_fetch_array($query);
       $type=$res['type'];
-      $id=$res['company_id'];    
+      $_SESSION['company_id']=$res['company_id']; 
+      
       if(mysqli_num_rows($query)>0){
 
-        if($type=='business'){
-            header("location:Bussiness?id=$id ");          
+        if($type=='business' ){
+            header("location:Bussiness");          
         }     
         else{
             echo "<center><h4 style='color: red;' class='mt-4'>No appropiate credantials found</h4></center>";

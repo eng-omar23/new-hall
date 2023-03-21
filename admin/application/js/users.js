@@ -5,65 +5,37 @@ $("#AddNew").on("click", function(){
    
 })
 
-$(document).ready(function(){
-                   
+$(document).ready(function() {
 
-    alert('hellow wolrd')
+alert('hwlloe')
+
+
 })
-
-$("#UsersForm").on("submit", function(e){
+$("#UsersForm").submit(function(e) {
     e.preventDefault();
-
-    let UserName = $("#UserName").val();
-    let Password = $("#Password").val();
-    let Tell = $("#Tell").val();
-    let UserType = $("#UserType").val();
-    let UserStatus = $("#UserStatus").val();
-
-    if(UserName == ""){
-        toastr.error("Please Enter User Name...");
-        return;
-    }
-    if(Password == ""){
-        toastr.error("Please Enter Password...");
-        return;
-    }
-    if(Tell == ""){
-        toastr.error("Please Enter Tell...");
-        return;
-    }
-    if( UserType == null){
-        toastr.error("Please Choose User Type...");
-        return;
-    }
-    if( UserStatus == null){
-        toastr.error("Please Choose User Status...");
-        return;
-    }
-  
-    let sendingData = {
-        "UserName": UserName,
-        "Password": Password,
-        "Tell": Tell,
-        "UserType": UserType,
-        "UserStatus": UserStatus,
-        "action": "RegisterUsers"
-    }
-    
     $.ajax({
-        method: "POST",
-        dataType: "JSON",
-        url : "../api/users.php",
-        data : sendingData,
-        success: function(data){
+        url: "../api/users.php",
+        data: new FormData($(this)[0]),
+        cache: false,
+        contentType: false,
+        processData: false,
+        method: 'POST',
+        type: 'POST',
+        success: function(resp) {
+            alert(resp)
 
-            console.log(data);
-        },
-        error: function(data){
-
+            var res = jQuery.parseJSON(resp);
+            if (res.status == 200) {
+                $("#success").css("display", "block");
+                $("#success").text(res.message);
+            } else if (res.status == 404) {
+                $("#success").css("display", "none");
+                $("#error").css("display", "block");
+                $("#error").text(res.message);
+            }
         }
-    })
+    });
 
 
-})
+});
 

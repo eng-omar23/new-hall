@@ -1,7 +1,7 @@
 
 <?php
 
-$conn = new mysqli("localhost","root","","hbs (1)");
+$conn = new mysqli("localhost","root","","hbs");
 if($conn->connect_error){
    echo $conn->error;
 }else{

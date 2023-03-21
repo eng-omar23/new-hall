@@ -1,4 +1,5 @@
 <?php
+
 include("../conn.php");
 include("../Bussiness/home.php");
 
@@ -10,15 +11,14 @@ body {
     margin-left: 3%;
 
 }
-h{
-    
-}
+
 </style>
 
 
 <?php
 
-$id = $_GET['id'];
+$id = $_SESSION['company_id'];
+
 
 
 
@@ -92,7 +92,7 @@ $id = $_GET['id'];
                             </div>
                             <br>
                             <input type="submit" value="Save" class="btn btn-primary btn-sm mt-2 float-right">
-                            <a href=" users.php?id=<?php echo $id ?>"
+                            <a href=" users.php"
                                 class="btn btn-success btn-sm mt-2 mr-4 float-right">View record</a>
 
 
@@ -105,7 +105,7 @@ $id = $_GET['id'];
     </div>
 </div>
 </div>
-<div class="container-fluid">
+<div class="container-fluid ">
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
@@ -113,8 +113,8 @@ $id = $_GET['id'];
         </div>
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table table-bordered" id="myTable">
-                    <thead class="table-dark">
+                <table class="table table-bordered bg-light" id="myTable">
+                    <thead class="table-bordered">
 
                         <tr>
                             <td>SNO</td>
@@ -134,7 +134,7 @@ $id = $_GET['id'];
 
                         <?php
     
-     $cid =$_GET['id']; 
+    $cid = $_SESSION['company_id'];
      $n=1;
      $sql="SELECT u.* , c.Name from users u join company_reg c on u.company_id = c.id where company_id='$cid'";
      $query=mysqli_query($conn,$sql);
@@ -163,11 +163,11 @@ $id = $_GET['id'];
 
 
                             <td>
-                                <a href="useredit.php?userid=<?php echo $data["id"]?>&&id=<?php echo $cid;?>"
+                                <a href="useredit.php?userid=<?php echo $data["id"]?>"
                                     class="btn btn-warning"><i class="fas fa-edit"></i></a> ||
 
                                 <a onclick='alert("are you sure")'
-                                    href="userdel.php?userid=<?php echo $data["id"]?>&&id=<?php echo $cid;?>"
+                                    href="usersdel.php?userid=<?php echo $data["id"]?>"
                                     class="btn btn-danger"><i class="fas fa-trash"></i></a>
                             </td>
 

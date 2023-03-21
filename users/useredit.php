@@ -12,7 +12,7 @@ include("../Bussiness/home.php");
 </style>
 <?php
 
-$id = $_GET['id'];
+$id = $_SESSION['company_id'];
 $userid = $_GET['userid'];
 $sql = "select * from users where company_id='$id' and id='$userid' ";
 $query = mysqli_query($conn, $sql);
@@ -57,7 +57,7 @@ $data = mysqli_fetch_array($query);
 
 
                 <input type="submit" value="update" class="btn btn-primary btn-sm mt-2 float-right">
-                <a href="users.php?id=<?php echo $id ?>" class="btn btn-success btn-sm mt-2 mr-4 float-right">View record</a>
+                <a href="users.php" class="btn btn-success btn-sm mt-2 mr-4 float-right">View record</a>
 
 
             </form>

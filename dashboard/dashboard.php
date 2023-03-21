@@ -67,7 +67,7 @@ include("../Bussiness/home.php");
 <body>
 
 <?php
-$id=$_GET['id'];
+$id=$_SESSION['company_id'];
 
 $sql="select count(b.bid) as number_of_booking,h.* from booking b JOIN halls h on b.hall_id=h.hall_id WHERE h.company_id='$id'";
 

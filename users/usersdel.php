@@ -1,25 +1,18 @@
 
 <?php
 include("../conn.php");
-$id=$_GET['id'];
+$id = $_SESSION['company_id'];
 $userid=$_GET['userid'];
+
 if(isset($_GET['userid'])){
     $userid=$_GET['userid'];
 
-    $query=mysqli_query($conn," delete from users where id='$userid'");
-
-
-
+    $query=mysqli_query($conn,"delete from users where id='$userid'");
 if($query){
 
-    
-header("location:users.php?id=$id");
+header("location:users.php");
 }
 else{
-    ?>
- 
-    <a href="users.php?id=<?php echo $id?>"></a>
-    
-    <?php
+    header("location:users.php");
 }
 }

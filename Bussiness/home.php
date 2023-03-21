@@ -1,4 +1,5 @@
 <?php
+session_start();
 @include("../conn.php");
 include("header.php");
 
@@ -30,7 +31,8 @@ include("header.php");
 
 </head>
 <?php
-$id=$_GET['id'];
+// $id=$_GET['id'];
+$id=$_SESSION['company_id'];
 $query=mysqli_query($conn,"select * from company_reg  where id='$id'");
 $data=mysqli_fetch_array($query);
 
@@ -45,7 +47,7 @@ $data=mysqli_fetch_array($query);
         <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
             <ul class="navbar-nav ">
                 <li class="nav-item ">
-                    <a class="nav-link" id='a' href="../dashboard/dashboard.php?id=<?php echo $data["id"];?>">Dashboard</a>
+                    <a class="nav-link" id='a' href="../dashboard/dashboard.php">Dashboard</a>
                 </li>
              
                 <li class="nav-item dropdown">
@@ -53,7 +55,7 @@ $data=mysqli_fetch_array($query);
                         Register</i>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="../users/users.php?id=<?php echo $data['id']?>">Users</a>
+                        <a class="dropdown-item" href="../users/users.php?>">Users</a>
                         <a class="dropdown-item" href="../hall/hview.php?id=<?php echo $data["id"];?>">Hall</a>
                          <a class="dropdown-item" href="../facility/facilityview.php?id=<?php echo $data["id"];?>">facility</a>
                          <a class="dropdown-item" href="../customers/custview.php?id=<?php echo $data["id"];?>">customers</a>

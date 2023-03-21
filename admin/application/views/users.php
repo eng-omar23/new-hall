@@ -221,4 +221,52 @@
 
 
     <?php include 'footer.php'; ?>
-    <script src="../js/users.js"></script>
+    
+
+
+<script>
+    $(document).ready(function() {
+
+        $("#error").css("display", "none");
+        $("#success").css("display", "none");
+        $(".select2").select2({
+            placeholder: "Please select here ",
+            width: "100%",
+
+        })
+
+
+    })
+    $("#UsersForm").submit(function(e) {
+
+
+
+        e.preventDefault();
+
+        $.ajax({
+            url: "../ap1/users.php",
+            data: new FormData($(this)[0]),
+            cache: false,
+            contentType: false,
+            processData: false,
+            method: 'POST',
+            type: 'POST',
+            success: function(resp) {
+                alert(resp)
+
+                var res = jQuery.parseJSON(resp);
+                if (res.status == 200) {
+                    $("#success").css("display", "block");
+                    $("#success").text(res.message);
+                } else if (res.status == 404) {
+                    $("#success").css("display", "none");
+                    $("#error").css("display", "block");
+                    $("#error").text(res.message);
+                }
+            }
+        });
+
+
+    });
+</script>
+</div>
