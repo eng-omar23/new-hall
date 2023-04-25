@@ -18,9 +18,10 @@ include("../Bussiness/home.php");
 </style>
 
 
-<?php
 
-$id = $_GET['id'];
+
+<?php
+$id = $_SESSION['company_id'];
 
 
 
@@ -155,7 +156,7 @@ if (mysqli_num_rows($_query) > 0) {
    
     <?php
     
-     $id =$_GET['id']; 
+     $id =$_SESSION['company_id'];
      $n=1;
      $sql="SELECT * from booking_view where company_id='$id'";
      $query=mysqli_query($conn,$sql);
@@ -184,8 +185,10 @@ if (mysqli_num_rows($_query) > 0) {
         <td><?php echo $data['end_date']?></td>
            
         <td>
-        <a  href="bookingedit.php?bid=<?php echo $data["bid"]?>&&id=<?php echo $id?>&&pid=<?php echo $data['pid']?>"class="btn btn-warning"><i class="fas fa-edit"></i></a> ||
-        <a href="booking_del.php?bid=<?php echo $data["bid"]?>&&id=<?php echo $id?>&&pid=<?php echo $data['pid']?>"class="btn btn-danger"><i class="fas fa-trash"></i></a>
+        <a  href="bookingedit.php?bid=<?php echo $data["bid"]?>"class="btn btn-warning"><i class="fas fa-edit"></i></a> ||
+        <a href="booking_del.php?bid=<?php echo $data["bid"]?>"class="btn btn-danger"><i class="fas fa-trash"></i></a>
+
+
         </td>
 
     </tr>
@@ -242,6 +245,8 @@ if (mysqli_num_rows($_query) > 0) {
 
     });
 
+
+
     function total() {
     var nAttendee = parseInt(document.getElementById("attendee_no").value);
     var chargeAmount = parseInt(document.getElementById("charge").value);
@@ -267,4 +272,6 @@ if (mysqli_num_rows($_query) > 0) {
 
   }
 </script>
+
+
 </div>

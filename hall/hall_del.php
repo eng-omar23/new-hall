@@ -1,7 +1,7 @@
 
 <?php
 include("../conn.php");
-$id=$_GET['id'];
+$id=$_SESSION['company_id'];
 if(isset($_GET['hid'])){
     $hallid=$_GET['hid'];
 

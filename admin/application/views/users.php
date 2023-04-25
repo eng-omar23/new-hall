@@ -44,7 +44,7 @@
                                     </div>
                                     <div class="col-sm-8">
                                         <div class="text-sm-end">
-                                          <button id="AddNew" type="button" class="btn btn-success btn-rounded waves-effect waves-light mb-2 me-2"><i class="mdi mdi-plus me-1"></i> Add New Users</button>
+                                          <button onclick="callModal()" id="AddNew" type="button" class="btn btn-success btn-rounded waves-effect waves-light mb-2 me-2"><i class="mdi mdi-plus me-1"></i> Add New Users</button>
                                         </div>
                                     </div><!-- end col-->
                                 </div>
@@ -225,26 +225,16 @@
 
 
 <script>
-    $(document).ready(function() {
 
-        $("#error").css("display", "none");
-        $("#success").css("display", "none");
-        $(".select2").select2({
-            placeholder: "Please select here ",
-            width: "100%",
+   function callModal(){
+    $("#UsersModal").modal("show");
+   }
 
-        })
-
-
-    })
     $("#UsersForm").submit(function(e) {
-
-
-
         e.preventDefault();
 
         $.ajax({
-            url: "../ap1/users.php",
+            url: "../api/users.php",
             data: new FormData($(this)[0]),
             cache: false,
             contentType: false,

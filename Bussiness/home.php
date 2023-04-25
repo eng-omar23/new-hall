@@ -20,8 +20,7 @@ include("header.php");
     }
 </style>
 <head>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/js/select2.min.js"></script>
-        <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+
 		
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">

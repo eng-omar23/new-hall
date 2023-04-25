@@ -17,7 +17,7 @@ include("../Bussiness/home.php");
 
 <?php
 
-$cid = $_GET['id'];
+$cid =$_SESSION['company_id'];
 $bid=$_GET['bid'];
 
 $sql="select * from booking_view  where bid='$bid' and company_id='$cid'";
@@ -107,7 +107,7 @@ $row=mysqli_fetch_array($q);
 
 
                 <input type="submit" value="Update" class="btn btn-primary btn-sm mt-2 float-right">
-                <a href=" booking.php?id=<?php echo $id ?>"class="btn btn-success btn-sm mt-2 mr-4 float-right">View record</a>
+                <a href=" booking.php"class="btn btn-success btn-sm mt-2 mr-4 float-right">View record</a>
                
 
             </form>

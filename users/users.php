@@ -129,7 +129,7 @@ $id = $_SESSION['company_id'];
 
                         </tr>
                     </thead>
-                    <tbody>
+                    
 
 
                         <?php
@@ -148,6 +148,10 @@ $id = $_SESSION['company_id'];
 
    
         ?>
+        <tbody>
+
+       
+        
                         <tr>
                             <td><?php echo $n; ?></td>
 
@@ -171,7 +175,9 @@ $id = $_SESSION['company_id'];
                                     class="btn btn-danger"><i class="fas fa-trash"></i></a>
                             </td>
 
+
                         </tr>
+                  
                         <?php
     $n++;
 

@@ -100,8 +100,8 @@ $id = $_SESSION['company_id'];
             <td>charge_perhead</td>
      
             <td>hall_desc</td>
-            <td>Update</td>
-            <td>delete</td>
+            <td>Manipulation</td>
+          
        
         </tr>
     </thead>
@@ -130,8 +130,8 @@ $id = $_SESSION['company_id'];
                     <td><?php echo $data["hall_desc"] ?></td>
                    <td>
                     <a href="hedit.php?hid=<?php echo $data["hall_id"] ?>" class="btn btn-warning"><i class="fas fa-edit"></i></a>
-                    </td>
-                    <td>
+                  ||
+                    
                    <a href="hall_del.php?hid=<?php echo $data["hall_id"] ?>" class="btn btn-danger"><i class="fas fa-trash"></i></a>
 
                  </td>
