@@ -185,10 +185,8 @@ if (mysqli_num_rows($_query) > 0) {
         <td><?php echo $data['end_date']?></td>
            
         <td>
-        <a  href="bookingedit.php?bid=<?php echo $data["bid"]?>"class="btn btn-warning"><i class="fas fa-edit"></i></a> ||
-        <a href="booking_del.php?bid=<?php echo $data["bid"]?>"class="btn btn-danger"><i class="fas fa-trash"></i></a>
-
-
+        <a  href="bookingedit.php?bid=<?php echo $data["bid"]?>&&id=<?php echo $data["pid"]?>"class="btn btn-warning"><i class="fas fa-edit"></i></a> ||
+        <a href="booking_del.php?bid=<?php echo $data["bid"]?>&&pid=<?php echo $data["pid"]?>"class="btn btn-danger"><i class="fas fa-trash"></i></a>
         </td>
 
     </tr>
@@ -245,8 +243,6 @@ if (mysqli_num_rows($_query) > 0) {
 
     });
 
-
-
     function total() {
     var nAttendee = parseInt(document.getElementById("attendee_no").value);
     var chargeAmount = parseInt(document.getElementById("charge").value);
@@ -272,6 +268,4 @@ if (mysqli_num_rows($_query) > 0) {
 
   }
 </script>
-
-
 </div>

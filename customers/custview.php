@@ -86,8 +86,8 @@ $id=$_SESSION['company_id'];
             <td> Name</td>
             <td>Phone</td>
             <td>Email</td>
-            <td>EDIT</td>
-            <td>DELETE</td>
+            <td>Action</td>
+            
         </tr>
     </thead>
     <tbody>
@@ -111,8 +111,8 @@ $id=$_SESSION['company_id'];
                     <td><?php echo $data["phone"] ?></td>
                     <td><?php echo $data["email"] ?></td>
                    <td><a href="custedit.php?cid=<?php echo $data["custid"] ?>" class="btn btn-warning"> <i class="fa fa-edit"></i>
-                   </a></td>
-                   <td> <a href="custdel.php?cid=<?php echo $data["custid"] ?>" class="btn btn-danger"><i class="fa fa-trash"></i></a></td>
+                   </a>
+                 <a href="custdel.php?cid=<?php echo $data["custid"] ?>" class="btn btn-danger"><i class="fa fa-trash"></i></a></td>
 
                 </tr>
         <?php

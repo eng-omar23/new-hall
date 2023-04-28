@@ -112,6 +112,8 @@ $row=mysqli_fetch_array($q);
 
             </form>
 
+
+>
             <script>
     $(document).ready(function() {
 

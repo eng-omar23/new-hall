@@ -64,7 +64,7 @@ $id = $_SESSION['company_id'];
       <textarea class="form-control" id='desc' name="desc" id="desc"></textarea>
                
                 <input type="submit" value="Save" class="btn btn-primary btn-sm mt-2 float-right">
-                <a href="hview.php>"class="btn btn-success btn-sm mt-2 mr-4 float-right">View record</a>
+                <a href="hview.php"class="btn btn-success btn-sm mt-2 mr-4 float-right">View record</a>
 
 </form>
 </div>
