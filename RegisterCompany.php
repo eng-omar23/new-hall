@@ -23,8 +23,10 @@
         <div class="card">
           <div class="card-body">
             <h5 class="card-title text-center">Register Company</h5>
-            <form method="post" Action="RegComHandler.php">
+            <form id="Reg_com_form" method="post" Action="RegComHandler.php">
               <input type="hidden"  name="company_id">
+              <div class="alert alert-danger" id="error"> </div>
+            <div class="alert alert-success" id="success"></div>
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="inputName">Name</label>
@@ -75,9 +77,17 @@
 </body>
 </html>
 <script>
+
   $(document).ready(function() {
+    $("#error").css("display", "none");
+$("#success").css("display", "none");
+$(".select2").select2({
+    placeholder: "Please select here ",
+    width: "100%",
+
+})
     // Form submission using AJAX
-    $('#registrationForm').submit(function(e) {
+    $('#Reg_com_form').submit(function(e) {
       e.preventDefault(); // Prevent default form submission behavior
 
       // Validate form inputs
@@ -87,6 +97,7 @@
       var phone = $('#inputPhone').val();
       var password = $('#inputPassword').val();
       var confirmPassword = $('#inputConfirmPassword').val();
+      var description = $('#inputDescription').val();
 
       // Perform basic validation
       if (name === '' || email === '' || address === '' || phone === '' || password === '' || confirmPassword === '' || description  ==='') {
@@ -112,14 +123,12 @@
 
                 var res = jQuery.parseJSON(resp);
                 if (res.status == 200) {
-                    // $("#success").css("display", "block");
-                    // $("#success").text(res.message);
-                    alert("successfully")
+                    $("#success").css("display", "block");
+                    $("#success").text(res.message);
                 } else if (res.status == 404) {
-                    // $("#success").css("display", "none");
-                    // $("#error").css("display", "block");
-                    // $("#error").text(res.message);
-                    alert("successfully")
+                    $("#success").css("display", "none");
+                    $("#error").css("display", "block");
+                    $("#error").text(res.message);
                 }
             },
         error: function(xhr, status, error) {
