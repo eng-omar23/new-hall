@@ -111,18 +111,17 @@ include('nav.php')
 
 
     .container {
+       
         display: flex;
-
+         margin-top: -5px;
         justify-content: center;
         position: absolute;
-        top: 45%;
-        left: 23%;
+        top: 30%;
+        left: 13%;
         transform: translate(-50%, -50%);
     }
 
-    .imag {
-        border-radius: 10px;
-    }
+  
     </style>
 </head>
 
@@ -131,7 +130,7 @@ include('nav.php')
     <div class="container mt-5">
         <div class="card">
             <div class="imag">
-                <img src="image//a2.jpg" height=480%; width=480; alt="">
+                <img src="image/3.jpg" height=300%; width=300; alt="">
             </div>
             <div class="card-body">
                 <h7 class="card-title"> Location : km5</h5><br>
@@ -145,7 +144,7 @@ include('nav.php')
 
     </div>
     <center>
-        <h2 class="mt-3 text-align-center fs-4">Hall Details</h2>
+        <h2 class="mt-3 text-align-center fs-4">Hall Facility</h2>
     </center>
 
 

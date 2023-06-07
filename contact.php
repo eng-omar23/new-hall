@@ -178,45 +178,6 @@ contact form created for treehouse competition.
 <script>
 
 
-$(document).ready(function(){
-                   
-
-                   $("#error").css("display","none");
-                   $("#success").css("display","none");
-             
-               })
-            $("#contact").submit(function(e){   
-      
-         
-
-               e.preventDefault();
-
-               $.ajax({
-                   url:"contact_process.php",
-                   data: new FormData($(this)[0]),
-                   cache: false,
-                   contentType: false,
-                   processData: false,
-                   method: 'POST',
-                   type: 'POST',
-                   success: function(resp) {
-               alert(resp)
-
-               var res = jQuery.parseJSON(resp);
-               if (res.status == 200) {
-                   $("#success").css("display", "block");
-                   $("#success").text(res.message);
-               } else if (res.status == 404) {
-                   $("#success").css("display", "none");
-                   $("#error").css("display", "block");
-                   $("#error").text(res.message);
-               }
-           
-                   }
-               });
-
-
-            });
 
 // $(function () {
 //   // validate

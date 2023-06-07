@@ -4,7 +4,6 @@ include("../conn.php");
 $id=$_SESSION['company_id'];
 if(isset($_GET['hid'])){
     $hallid=$_GET['hid'];
-
 $query=mysqli_query($conn," delete from halls where hall_id='$hallid'");
 
 if($query){

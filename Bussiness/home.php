@@ -45,10 +45,10 @@ $data=mysqli_fetch_array($query);
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
             <ul class="navbar-nav ">
+        
                 <li class="nav-item ">
                     <a class="nav-link" id='a' href="../dashboard/dashboard.php">Dashboard</a>
                 </li>
-             
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id='a' href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Register</i>
