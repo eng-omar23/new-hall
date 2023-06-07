@@ -18,10 +18,7 @@ $sql="select * from company_reg where Name='$cname' ";
  $company_id=mysqli_query($conn,$sql);
 
    $data=mysqli_fetch_array($company_id);
-   $id=$data['id'];     
-
-
-
+   $id=$data['id'];    
  if($id ==null){
      $sql ="insert into local_users values(null,'$name','$password','$email','Admin','$status',null)";
 

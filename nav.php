@@ -28,14 +28,18 @@ color:white;
   <ul class="navbar-nav ">
     <li class="nav-item ">
       <a class="nav-link" id='a' href="search.php">Home </a>
-    </li>
+      </li>
     <li class="nav-item ">
       <a class="nav-link" id='a' href="contact.php">Contact</i></a>
 </li>
+</li>
+    <li class="nav-item ">
+      <a class="nav-link" id='a' href="RegisterOption.php">Register</i></a>
+</li>
 
  
-      
-      <a class="nav-link" id='a' href="login.php">Sign In</a>
+      <li>
+              <a class="nav-link" id='a' href="login.php">Sign In</a>
     </li>
 
 
