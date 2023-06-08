@@ -1,65 +1,65 @@
 <?php
+session_start();
+include("conn.php");
+include("functions.php");
 
-use function PHPSTORM_META\type;
+$email = sanitizeInput($_POST['Email']);
+$password = sanitizeInput($_POST['Password']);
 
- session_start();	
-  include("conn.php"); 
-  $email=$_POST['email'];
-  $password=$_POST['password'];
-
-
-  if(isset($_POST['submit']))
-  {
-      $query = mysqli_query($conn,"select * from users where email='$email' and password='$password'");
-      $res=mysqli_fetch_array($query);
-      $type=$res['type'];
-      $_SESSION['company_id']=$res['company_id']; 
-      
-      if(mysqli_num_rows($query)>0){
-
-        if($type=='business' ){
-            header("location:Bussiness");          
-        }     
-        else{
-            echo "<center><h4 style='color: red;' class='mt-4'>No appropiate credantials found</h4></center>";
-            include("login.php");
-        }
-      }
-      
-
-      $query = mysqli_query($conn,"select * from local_users where email='$email' and password='$password'");
-      $res=mysqli_fetch_array($query);
-    
-           $_SESSION['username']=$res['username'];
-           $_SESSION['id']=$res['user_id'];
-           $type=$res['type'];
-           
- if(mysqli_num_rows($query) >0){
-
-
-     if($type='customer' && $type!="Admin" ){
-        header("location:customerDashboard/index.php");  
+function get_company($conn, $sql) {
+    $query = mysqli_query($conn, $sql);
+    if ($query && mysqli_num_rows($query) > 0) {
+        $result = mysqli_fetch_array($query);
+        return $company_id = $result['id'];
+    } else {
+        return 0;
     }
-     
-         else if($type='Admins' && $type!="customer"){
-            header("location:admin/application/views/dashboard.php");  
+}
+
+function get_customer($conn, $sql) {
+    $query = mysqli_query($conn, $sql);
+    if ($query && mysqli_num_rows($query) > 0) {
+        $result = mysqli_fetch_array($query);
+        return $custid = $result['custid'];
+    } else {
+        return 0;
+    }
+}
+
+if (isset($email) && isset($password)) {
+    $sql = "SELECT * FROM users WHERE email='$email' AND password='$password'";
+    $query = mysqli_query($conn, $sql);
+    if ($query && mysqli_num_rows($query) > 0) {
+        $sql = "SELECT * FROM company_reg WHERE email='$email'";
+        $company_id = get_company($conn, $sql);
+        if ($company_id != 0) {
+            $_SESSION['company_id'] = $company_id;
+            header("Location: dashboard/dashboard.php");
+            exit;
+        } else {
+            $sql = "SELECT * FROM customers WHERE email='$email'";
+            $cust_id = get_customer($conn, $sql);
+            if ($cust_id != 0) {
+                $_SESSION['cust_id'] = $cust_id;
+                header("Location: customerDashboard/cus_dashboard.php");
+                exit;
+            } else {
+                header("Location: Admin/admin_dashboard.php");
+                exit;
+            }
         }
-     
-        else{
-            echo "<center><h4 style='color: red;' class='mt-4'>No appropiate credantials found</h4></center>";
-            include("login.php");
-
-        }
-
-      }
-
-      else
-      {
-         echo "<center><h4 style='color: red;' class='mt-4'>Wrong credientails please Try Again</h4></center>";
-     include("login.php");
-        
+    } else {
+        $result = array(
+            'message' => 'This email  or password is wrong. Please check it.',
+            'status' => 400
+        );
        
-      }
-
-
     }
+}
+
+// Output the JSON response if needed
+echo json_encode($result);
+return ;
+
+
+?>

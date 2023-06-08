@@ -6,6 +6,15 @@ function get_id($conn,$sql){
     return $id;
 
 }
+//this function checks if the the record exists or not 
+function check($conn, $sql) {
+    $result = mysqli_query($conn, $sql);
+    if ($result && mysqli_num_rows($result) > 0) {
+        return true;
+    } else {
+        return false;
+    }
+}
 // Function to sanitize input values
 function sanitizeInput($input)
 {

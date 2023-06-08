@@ -10,15 +10,7 @@ $address = sanitizeInput($_POST['address']);
 $phone = sanitizeInput($_POST['phone']);
 $password = sanitizeInput($_POST['password']);
 $description = sanitizeInput($_POST['description']);
-
-function check($conn, $sql) {
-    $result = mysqli_query($conn, $sql);
-    if ($result && mysqli_num_rows($result) > 0) {
-        return true;
-    } else {
-        return false;
-    }
-}
+$currentDate = date('Y-m-d');
 
 // Store the input values in the $data array
 $data = array(
@@ -28,6 +20,14 @@ $data = array(
     'phone' => $phone,
     'email' => $email,
     'Description' => $description,
+);
+$users_info= array(
+    'user_id' => null,
+    'username' => $name,
+    'password' => $password,
+    'email' => $email,
+    'type' => "Company",
+    'date' => $currentDate,
 );
 
 if (empty($company_id)) {
@@ -39,7 +39,8 @@ if (empty($company_id)) {
         );
     } else {
         $success = InsertCompanyData($conn, $data);
-        if ($success) {
+        $users_data=InsertUsersData($conn,$users_info);
+        if ($success || $users_data) {
             $result = array(
                 'message' => 'Successfully created account. Welcome!',
                 'status' => 200
