@@ -53,8 +53,10 @@ $id=$_SESSION['company_id'];
               
             
                
-                <input type="submit" value="Save" class="btn btn-primary btn-sm mt-2 float-right">
-                <a href="custview.php?"class="btn btn-success btn-sm mt-2 mr-4 float-right">View record</a>
+                <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fa-solid fa-close"></i></button>
+        <button type="submit" class="btn btn-primary"><i class="fa-solid fa-save"></i></button>
+        <a href="" class="btn btn-primary"><i class="fa-solid fa-eye "></i> </a>
 
 </form>
 </div>
@@ -70,16 +72,14 @@ $id=$_SESSION['company_id'];
   </div>
 </div>
 <div class="container-fluid">
-           <!-- DataTales Example -->
-           <div class="card shadow mb-4">    
-               <div class="card-header py-3">
-                   <h6 class="m-0 font-weight-bold text-dark">Customers Details</h6>
-               </div>
-               <div class="card-body">
-                   <div class="table-responsive">
-
-<table class="table table-bordered" id="myTable">
-    <thead class="table-dark">
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-dark">Customers Details</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table id="myTable" class="table table-dark table-bordered table-hover">
+                    <thead class="table-dark">
 
         <tr>
             <td>SNO</td>
@@ -95,12 +95,12 @@ $id=$_SESSION['company_id'];
 
         <?php
 
-        $id =$_SESSION['company_id'];
+
         $n = 1;
         $sql = "SELECT * FROM customers";
         $query = mysqli_query($conn, $sql);
         if (mysqli_num_rows($query) > 0) {
-            $sql = "SELECT * FROM customers where company_id='$id'";
+            $sql = "SELECT * FROM customers";
             $query = mysqli_query($conn, $sql);
             while ($data = mysqli_fetch_array($query)) {
 

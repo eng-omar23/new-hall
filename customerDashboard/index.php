@@ -28,8 +28,20 @@ color:white;
     </style>
 <nav class="navbar navbar-expand-sm navbar-light bg-primary fixed-top">
 <div class="container-fluid ">
+	<?php
+$id=$_SESSION['cust_id'];
+$sql="select * from customers where custid='$id'";
+$query=mysqli_query($conn,$sql);
+if($query){
+	$data=mysqli_fetch_array($query);
+}
+else{
+	echo "No data returned";
+}
 
-<a class="navbar-brand"  id='a' href="#"><?php echo $_SESSION['username']?></a>
+
+?>
+<a class="navbar-brand"  id='a' href="#"><?php echo $data['firstname']?></a>
 <img src="../image/avatar.jpg" width="50" alt="Bootstrappin'">
 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
   <span class="navbar-toggler-icon"></span>

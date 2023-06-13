@@ -76,7 +76,7 @@
           <div class="card-body">
             <h5 class="card-title">Register as a Customer</h5>
             <p class="card-text">Register your customer account to enjoy personalized services.</p>
-            <a href="#" class="btn btn-primary btn-register">Register as Customer</a>
+            <a href="customer_reg.php" class="btn btn-primary btn-register">Register as Customer</a>
           </div>
         </div>
       </div>

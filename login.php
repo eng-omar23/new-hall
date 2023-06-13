@@ -29,7 +29,7 @@ include_once('nav.php')
       margin-bottom: 20px;
     }
 
-    .login-form input[type="text"],
+    .login-form input[type="email"],
     .login-form input[type="password"] {
       width: 100%;
       padding: 10px;
@@ -63,10 +63,10 @@ include_once('nav.php')
   <div class="container">
     <div class="login-container">
       <h3 class="login-title">Login</h3>
-      <form id="loginForm" Action="login_handler.php" method="Post" class="login-form">
+      <form id="loginForm" Action="./api/login_handler.php" method="Post" class="login-form">
       <div class="alert alert-danger" id="error"> </div>
-        <input type="text" id="InputEmail"  name="Email" placeholder="Username">
-        <input type="password" id="InputPassword" name="Password" placeholder="Password">
+        <input type="email" id="InputEmail"  name="Email" placeholder="Username" required>
+        <input type="password" id="InputPassword" name="Password" placeholder="Password" required>
         <button type="submit">Login</button>
       </form>
       <div class="signup-link">
@@ -78,6 +78,7 @@ include_once('nav.php')
 </body>
 </html>
 <script>
+  
 
   // Form submission using AJAX
   $('#loginForm').submit(function(e) {
@@ -101,7 +102,7 @@ include_once('nav.php')
 
     // AJAX request
     $.ajax({
-      url: 'login_handler.php',
+      url: './api/login_handler.php',
       type: 'POST',
       data: formData,
       success: function(resp) {
@@ -124,4 +125,5 @@ include_once('nav.php')
     });
   });
 });
+
 </script>

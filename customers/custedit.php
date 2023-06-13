@@ -14,15 +14,16 @@ include("../Bussiness/home.php");
 <?php
 
 $custid = $_GET['cid'];
-$cid= $_SESSION['company_id'];
-$sql="Select * from customers where Company_id ='$cid' and custid='$custid'";
+$sql="Select * from customers where  custid='$custid'";
 $query=mysqli_query($conn,$sql);
 $row=mysqli_fetch_array($query);
 
 ?>
-<div class="container justify-center mt-5">
-    <div class="card shadow">
-        <div class="card-header bg bg-info  text-center text-white">Hall Registration</div>
+<div class="container-fluid">
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-dark">Facility Details</h6>
+        </div>
         <div class="card-body">
         <div class="alert alert-danger" id="error"> </div>
         <div class="alert alert-success" id="success"></div>

@@ -1,49 +1,80 @@
 <?php
 include("../conn.php");
+include_once("../functions.php");
 
-$name=$_POST["Name"];
-$cid=$_POST["cid"];
-$Phone=$_POST["Phone"];
-$company_id=$_POST["company_id"];
-$Email=$_POST['Email'];
+$name = $_POST["Name"];
+$customer_id = $_POST["cid"];
+$phone = $_POST["Phone"];
+$email = $_POST['Email'];
+$currentDate = date('y-m-d');
 
-if($cid==null){
+// Generate a password with a length of 10 characters
+$password_array = generate_password();
+$password = $password_array[0]."".$password_array[1];
+$data = array(
+    'custid' => null,
+    'firstname' => $name,
+    'phone' => $phone,
+    'email' => $email,
+);
 
-    $query=mysqli_query($conn,"insert into customers values (null,'$name','$Phone','$Email','$company_id')");
+$users_info = array(
+    'user_id' => null,
+    'username' => $name,
+    'password' => $password,
+    'email' => $email,
+    'status' => 1,
+    'type' => "customer",
+    'date' => $currentDate,
+);
 
-    if($query){
-        $Result=[
-            'message' => "successfully inserted new record", 
-            'status'=> 200
-        ];
-        echo json_encode($Result);
+if (empty($customer_id)) {
+    $sql = "SELECT * FROM customers WHERE email = '$email'";
+    $checkcustomers = check($conn, $sql);
+    if ($checkcustomers) {
+        $result = array(
+            'message' => 'Account already exists.',
+            'status' => 400
+        );
+    } else {
+        $sql = "SELECT * FROM users WHERE email = '$email'";
+        $checkusers = check($conn, $sql);
+        if ($checkusers) {
+            $result = array(
+                'message' => 'Account already exists.',
+                'status' => 400
+            );
+        } else {
+            $success = customers_data($conn, $data);
+            $users_data = InsertUsersData($conn, $users_info);
+            if ($success && $users_data) {
+                $result = array(
+                    'message' => 'Successfully created Customers.',
+                    'status' => 200
+                );
+            } else {
+                $result = array(
+                    'message' => 'Failed to register Customer',
+                    'status' => 200
+                );
+            }
+        }
     }
-    else{
-        $Result=[
-            'message' => "Faled to inserted new record", 
-            'status'=> 404
-        ];
-        echo json_encode($Result);
+} else {
+    $sql = "UPDATE customers SET firstname='$name', phone='$phone', Email='$email' WHERE custid='$customer_id'";
+    $query = mysqli_query($conn, $sql);
+    if ($query) {
+        $result = array(
+            'message' => "Successfully updated",
+            'status' => 200
+        );
+    } else {
+        $result = array(
+            'message' => "Failed to update",
+            'status' => 404
+        );
     }
-    
 }
-else{
-    
-    $sql="update customers phone set firstname='$name',phone='$Phone',Email='$Email' where custid='$cid'";
-    $query=mysqli_query($conn,$sql);
-    if($query){
-        $Result=[
-            'message' => "successfully updated ", 
-            'status'=> 200
-        ];
-        echo json_encode($Result);
-    }
-    else{
-        $Result=[
-            'message' => "Failed to update", 
-            'status'=> 404
-        ];
-        echo json_encode($Result);
-    }
-    
-}
+
+echo json_encode($result);
+?>

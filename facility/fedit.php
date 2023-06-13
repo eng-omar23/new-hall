@@ -1,16 +1,16 @@
 <?php
-include("conn.php");
+include("../conn.php");
 include("../Bussiness/home.php");
-include("header.php");
+
 ?>
 <style>
     body {
-  margin-top: -9%;
+       margin-top: 5%;
 
         background-color: white;
         background: #000;
-        color: white;
-        text-align: center;
+        color: black;
+      
         background-color: white;
     }
 </style>
@@ -18,50 +18,33 @@ include("header.php");
 <?php
 
 $id = $_GET['fid'];
-$cid= $_SESSION['company_id'];
-$sql="Select * from facility_view where companyid ='$cid' and fid='$id'";
+
+$sql="Select * from facility where facility_id='$id'";
 $query=mysqli_query($conn,$sql);
 $row=mysqli_fetch_array($query);
 
 ?>
 
-<div class="container justify-center">
-    <div class="card shadow">
-        <div class="card-header bg bg-info text-center">Facility Registration</div>
+<div class="container-fluid">
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-dark">Facility Details</h6>
+        </div>
         <div class="card-body">
             <div class="alert alert-danger" id="error"> </div>
             <div class="alert alert-success" id="success"></div>
             <form id="fall_form" method="Post" action="facility_handler.php">
 
-                <input type="hidden" name="facilityid" id="facilityid" value="<?php echo $row['fid']?>">
-                <select class="form-control form-control-sm select2 text-black" id="hall_id" name="hall_id">
-                    <option value="<?php echo $row["hid"]?>"> <?php echo $row["htype"]?></option>
-
-                    <?php
-                    $_query = mysqli_query($conn, "select * from halls where Company_id='$cid'");
-                    if (mysqli_num_rows($_query) >0) {
-                        $_query = mysqli_query($conn, "select * from halls where Company_id='$cid'");
-                        while ($data = mysqli_fetch_array($_query)) {
-                    ?>
-                            <option value="<?php echo $data["hall_id"]; ?>"><?php echo $data['hall_type'] ?></option>
-                        <?php
-                        }
-                    } else {
-                        ?>
-                        <option value="">No data Available</option>
-                    <?php
-                    }
-                    ?>
-                </select>
-
-
+                <input type="hidden" name="facilityid" id="facilityid" value="<?php echo $row['facility_id']?>">
+              <div>
                 <label class="form-label">Facility Name</label>
-                <input type="text" name="name" id="name" class="form-control form-control-sm" value="<?php echo $row['fname']?>">
-
+                <input type="text" name="name" id="name" class="form-control form-control-sm" value="<?php echo $row['facility_name']?>">
+                </div>
+                <div>
                 <label class="form-label">Price</label>
-
-                <input type="text" name="price" id="price" class="form-control form-control-sm" value="<?php echo $row['fprice']?>">
+                <input type="text" name="price" id="price" class="form-control form-control-sm" value="<?php echo $row['Price']?>">
               
+              </div>
                 <input type="submit" value="Update" class="btn btn-primary btn-sm mt-2 float-right">
                 <a href="facilityview.php"class="btn btn-success btn-sm mt-2 mr-4 float-right">View record</a>
                

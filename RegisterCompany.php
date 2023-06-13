@@ -23,7 +23,7 @@
         <div class="card">
           <div class="card-body">
             <h5 class="card-title text-center">Register Company</h5>
-            <form id="Reg_com_form" method="post" Action="RegComHandler.php">
+            <form id="Reg_com_form" method="post" Action="api/RegComHandler.php">
               <input type="hidden"  name="company_id">
               <div class="alert alert-danger" id="error"> </div>
             <div class="alert alert-success" id="success"></div>
@@ -115,7 +115,7 @@ $(".select2").select2({
 
       // AJAX request
       $.ajax({
-        url: 'RegComHandler.php',
+        url: './api/RegComHandler.php',
         type: 'POST',
         data: formData,
         success: function(resp) {

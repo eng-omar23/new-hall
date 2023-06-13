@@ -17,10 +17,7 @@ include("../Bussiness/home.php");
 
 <?php
 
-$id = $_SESSION['company_id'];
-$sql="select * from company_reg where id='$id' ";
-$query=mysqli_query($conn,$sql);
-$data=mysqli_fetch_array($query);
+
 
 
 
@@ -50,38 +47,22 @@ $data=mysqli_fetch_array($query);
             <form id="fa_form" method="Post" action="facility_handler.php">
 
                 <input type="hidden" name="facilityid" id="facilityid">
-                <select class="form-control form-control-sm select2 text-black" id="hall_id" name="hall_id">
-
-                    <?php
-                    $_query = mysqli_query($conn, "select * from halls where Company_id='$id' ");
-                    if (mysqli_num_rows($_query) > 0) {
-                        $_query = mysqli_query($conn, "select * from halls where Company_id='$id'");
-                        while ($data = mysqli_fetch_array($_query)) {
-                    ?>
-               
-                            <option value="<?php echo $data["hall_id"]; ?>"><?php echo $data['hall_type'] ?></option>
-                        <?php
-                        }
-                    } else {
-                        ?>
-                        <option value="">No data Available</option>
-                    <?php
-                    }
-                    ?>
-                </select>
-
+           
 
                 <label class="form-label">Facility Name</label>
-                <input type="text" name="name" id="name" class="form-control form-control-sm" placeholder="Enter Facility Name">
+                <input type="text" name="name" id="name" class="form-control form-control" placeholder="Enter Facility Name">
 
                 <label class="form-label">Price</label>
 
-                <input type="text" name="price" id="price" class="form-control form-control-sm" placeholder="Enter facility Price ">
+                <input type="text" name="price" id="price" class="form-control form-control" placeholder="Enter facility Price ">
 
 
 
-                <input type="submit" value="Save" class="btn btn-primary btn-sm mt-2 float-right">
-                <a href="facilityview.php"class="btn btn-success btn-sm mt-2 mr-4 float-right">View record</a>
+                <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fa-solid fa-close"></i></button>
+        <button type="submit" class="btn btn-primary"><i class="fa-solid fa-save"></i></button>
+        <a href="" class="btn btn-primary"><i class="fa-solid fa-eye "></i> </a>
+               
                
 
             </form>
@@ -95,23 +76,19 @@ $data=mysqli_fetch_array($query);
 </div>
 
 <div class="container-fluid">
-           <!-- DataTales Example -->
-           <div class="card shadow mb-4">    
-               <div class="card-header py-3">
-                   <h6 class="m-0 font-weight-bold text-dark">Faciltity Details</h6>
-               </div>
-               <div class="card-body">
-                   <div class="table-responsive">
-                   <table class="table table-bordered" id="myTable" width="100%" cellspacing="0">
-    <thead  class="table-dark">
-
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-dark">facility Details</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table id="myTable" class="table table-dark table-bordered table-hover">
+                    <thead class="table-dark">
     <tr>
     <td>SNO</td>
         <td>Facility Name</td>
         <td>Price</td>
-        <td>hall type</td>
-
-        <td>Maniplate</td>
+<td>Action</td>
     </tr>
     </thead>
     <tbody>
@@ -119,14 +96,14 @@ $data=mysqli_fetch_array($query);
    
     <?php
     
-     $id =$_SESSION['company_id'];
+
  
      $n=1;
    
-    $sql="Select f.*,h.* from facility f join halls h on f.hall_id=h.hall_id where company_id='$id'";
+ $sql="select * from facility";
     $query=mysqli_query($conn,$sql);
     if(mysqli_num_rows($query)>0){
-        $sql="Select f.*,h.* from facility f join halls h on f.hall_id=h.hall_id where company_id='$id'";
+        $sql="select * from facility";
         $query=mysqli_query($conn,$sql);
         while($data=mysqli_fetch_array($query)){
 
@@ -136,9 +113,7 @@ $data=mysqli_fetch_array($query);
         <td><?php echo $n; ?></td>
         <td><?php echo $data["facility_name"]?></td>
         <td><?php echo $data["Price"]?></td>  
-        <td><?php echo $data["hall_type"]?></td> 
-    
-       
+
               
         <td>
         <a  href="fedit.php?fid=<?php echo $data["facility_id"]?>>"class="btn btn-warning"><i class="fas fa-edit"></i></a> 

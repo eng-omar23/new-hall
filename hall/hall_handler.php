@@ -1,20 +1,19 @@
 <?php
 require '../conn.php';
+require_once "../functions.php";
+
 $hallid=$_POST['hallid'];
-$company_id=$_POST['company_id'];
 $type=$_POST['type'];
 $desc=$_POST['desc'];
 $capacity=$_POST['capacity'];
 $location=$_POST["location"];
-$charge=$_POST['charge_perhead'];
 $photo=$_FILES['photo']['name'];
 $path=$_FILES['photo']['tmp_name'];
-$mdate= date ('y,n,d');
+$mdate= date ('y-m-d');
 $folder ="../image/".$photo;
 
-
 if($hallid==null){   
-$sql="insert into halls values (null,'$company_id','$type','$location','$capacity','$charge','$folder','$desc','$mdate')";
+$sql="insert into halls values (null,'$type','$location','$capacity','$folder','$desc','$mdate')";
 $query=mysqli_query($conn,$sql);
 
 if($query){
@@ -39,8 +38,7 @@ else{
 
 else{   
 
- $sql="update halls set company_id='$company_id',hall_type='$type',location='$location',capacity='$capacity',
- charge_perhead='$charge',hall_photo='$folder',hall_desc='$desc',date='$mdate' where hall_id='$hallid' ";
+ $sql="update halls set hall_type='$type',location='$location',capacity='$capacity',hall_photo='$folder',hall_desc='$desc',date='$mdate' where hall_id='$hallid' ";
     $query=mysqli_query($conn,$sql);
     
     if($query){

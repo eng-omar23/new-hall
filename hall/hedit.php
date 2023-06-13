@@ -16,16 +16,17 @@ include@("../Bussiness/home.php");
 <?php
 
 $id = $_GET['hid'];
-$cid =$_SESSION['company_id'];
-$sql = "SELECT c.*,h.* FROM halls h join company_reg c on h.Company_id=c.id where hall_id='$id' and company_id='$cid'";
+$sql = "select * from halls where hall_id ='$id'";
 $query=mysqli_query($conn,$sql);
 $row=mysqli_fetch_array($query);
 
 ?>
 
-<div class="container justify-center">
-    <div class="card shadow">
-        <div class="card-header bg bg-info text-center">Hall Registration Update</div>
+<div class="container-fluid">
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-dark">Hall Details</h6>
+        </div>
         <div class="card-body">
            
   <div class="alert alert-danger" id="error"> </div>
@@ -46,10 +47,7 @@ $row=mysqli_fetch_array($query);
                 
                 <label class="form-label">Capacity</label>
                 <input type="text"name="capacity" id="capacity" class="form-control" value="<?php echo $row['capacity']?>">
-                
-                <label class="form-label">Charge_perhead</label>
-                <input type="text"name="charge_perhead" id="charge_perhead" class="form-control" value="<?php echo $row['charge_perhead']?>">
-                
+            
                 
                 
                 <label class="form-label" for="photo" >Hall Photo</label>

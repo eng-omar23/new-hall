@@ -67,13 +67,13 @@ include("../Bussiness/home.php");
 <body>
 
 <?php
-$id=$_SESSION['company_id'];
 
-$sql="select count(b.bid) as number_of_booking,h.* from booking b JOIN halls h on b.hall_id=h.hall_id WHERE h.company_id='$id'";
+
+$sql="select count(b.bid) as number_of_booking,h.* from booking b JOIN halls h on b.hall_id=h.hall_id ";
 
 $query=mysqli_query($conn,$sql);
 $data=mysqli_fetch_assoc($query);
-$sql="select count(b.bid) as bid,h.* from booking b JOIN halls h on b.hall_id=h.hall_id WHERE h.company_id='$id' and b.Bdate=CURDATE();";
+$sql="select count(b.bid) as bid,h.* from booking b JOIN halls h on b.hall_id=h.hall_id WHERE  b.Bdate=CURDATE();";
 $q=mysqli_query($conn,$sql);
 $row=mysqli_fetch_assoc($q);
 ?>

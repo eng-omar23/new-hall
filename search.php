@@ -33,7 +33,7 @@ $(document).ready(function(){
    e.preventDefault();
    if(input !=""){
     $.ajax({
-      url:"search_handler.php",
+      url:"../search_handler.php",
       method :"POST",
       data : {input : input},
 

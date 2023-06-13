@@ -12,56 +12,60 @@ include("../Bussiness/home.php");
 </style>
 <?php
 
-$id = $_SESSION['company_id'];
+
 $userid = $_GET['userid'];
-$sql = "select * from users where company_id='$id' and id='$userid' ";
+$sql = "select * from users where user_id='$userid' ";
 $query = mysqli_query($conn, $sql);
 $data = mysqli_fetch_array($query);
 
 ?>
 
-<div class="container justify-center">
-    <div class="card shadow">
-        <div class="card-header bg bg-info text-center text-white ">Users Update </div>
-        <div class="card-body">
-            <div class="alert alert-danger" id="error"> </div>
-            <div class="alert alert-success" id="success"></div>
-            <form id="users" method="Post" action="usersprocess.php">
-
-                <input type="hidden" name="userid" id="usersid" value="<?php echo $data['id'] ?>">
-
-                <input type="hidden" name="company_id" id="company_id" value="<?php echo $id ?>">
-
-
-                <label for="username">User Name</label>
-                <input type="text" class="form-control form-control-sm" id="name" name="name" value="<?php echo $data['username'] ?>">
-
-                <label for="pass">password</label>
-                <input type="password" name="pass" id="pass" class="form form-control" value="<?php echo $data['password'] ?>">
-                <label class="form-label">Email</label>
-                <input type="email" name="email" id="email" class="form-control form-control-sm" value="<?php echo $data['email'] ?>">
-
-
-
-                <label class="form-label">type</label>
-                <select class="form-control form-control-sm" id="type" name="type" value="<?php echo $data['type'] ?>">
-                    <option value="<?php echo $data['type'] ?>"><?php echo $data['type'] ?></option>
-                    <option value="admin">Admin</option>
-                    <option value="user">User</option>
-                </select>
-
-
-                <label class="form-label">Status</label>
-                <input type="text" class="form-control form-control-sm" id="status" name="status" value="<?php echo $data['status'] ?>">
-
-
-
-                <input type="submit" value="update" class="btn btn-primary btn-sm mt-2 float-right">
-                <a href="users.php" class="btn btn-success btn-sm mt-2 mr-4 float-right">View record</a>
-
-
-            </form>
+<div class="container-fluid">
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-dark">User Details</h6>
         </div>
+        <div class="card-body">
+            <div class="alert alert-danger" id="error"></div>
+            <div class="alert alert-success" id="success"></div>
+            <form id="User_edit" action="usersprocess.php" method="Post" >
+          <div class="row">
+            <div class="col-md-6">
+              <div class="mb-3">
+              <input type="hidden" name="userid" id="userid" value="<?php echo $data['user_id']?>">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" class="form-control" id="username" name="username" value="<?php echo $data['username'] ?>" required>
+              </div>
+              <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" name="password" value="<?php echo $data['password'] ?>" required>
+              </div>
+              <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" name="email" value="<?php echo $data['email'] ?>" required>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="mb-3">
+                <label for="type" class="form-label">Type</label>
+                <input type="text" class="form-control" id="type" name="type" value="<?php echo $data['type']?>" required>
+              </div>
+              <div class="mb-3">
+                <label for="status" class="form-label">Status</label>
+                <input type="text" class="form-control" id="status" name="status" value="<?php echo $data['status'] ?>" required>
+              </div>
+              <div class="mb-3">
+                <label for="date" class="form-label">Date</label>
+                <input type="datetime-local" class="form-control" id="date" name="date" value="<?php echo $data['date'] ?>" required>
+              </div>
+            </div>
+            <input type="submit" value="Update" class="btn btn-primary btn-sm mt-2 float-right">
+            <a href="users.php" class="btn btn-success btn-sm mt-2 mr-4 float-right">View record</a>
+          </div>
+        </form>
+        </div>
+    </div>
+</div>
 
 
         <script>
@@ -76,7 +80,7 @@ $data = mysqli_fetch_array($query);
 
 
             })
-            $("#users").submit(function(e) {
+            $("#User_edit").submit(function(e) {
                 e.preventDefault();
                 $.ajax({
                     url: "usersprocess.php",
@@ -103,5 +107,6 @@ $data = mysqli_fetch_array($query);
 
 
             });
+      
         </script>
     </div>
